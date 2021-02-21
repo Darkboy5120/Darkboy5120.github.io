@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>Bienvenido a CacasCode</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+        i {
+            cursor: pointer;
+            animation-name: fadeDisplay;
+            animation-duration: 3s;
+        }
+        @keyframes toRoundBorders {
+            0% {border-radius: 0;}
+            50% {border-radius: 15px;}
+            100% {border-radius: 0;}
+        }
+        @keyframes toRight {
+            from {transform: translateX(-1000px);}
+            to {transform: translateX(none);
+                animation: none;
+            }
+        }
+        @keyframes fadeDisplay {
+            0% {opacity: 0;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+        .card {
+            transition: transform 2s;
+        }
+        .cardOnLoad {
+            animation: toRight linear 1.7s;
+        }
+        .cardOnReady {
+            animation: toRoundBorders linear 2s .5s;
+        }
+        .cardOnReady:hover {
+            transform: scale(1.2, 1.2);
+        }
+    </style>
+  </head>
+  <body class="bg-dark text-white font-monospace">
+    <div class="container">
+        <div class="row pt-2">
+            <div class="col text-center">
+                <h1>CacasCode</h1>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col">
+                <p class="text-center">Bienvenido a CacasCode, el equipo de trabajo que 
+                    necesitas para hacer realidad tu idea o ayudarte a mejorar el rendimiento 
+                    de tu negocio mediante una solucion de software. Te invitamos a charlar con nosotros 
+                    para comenzar a desarrollar tu gran idea.
+                </p>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col d-flex justify-content-center pb-3">
+                <div class="card bg-success text-dark cardOnLoad" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Rendimiento</h5>
+                        <p class="card-text">Tu página estara lista en no mas de una semana 
+                            por lo que no tendras que esperar tiempos absurdos de espera para ver 
+                            resultados tangibles.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-center pb-3">
+                <div class="card bg-light text-dark cardOnLoad" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Profesional</h5>
+                        <p class="card-text">Nosotros nos tomamos en serio la etica profesional para 
+                            que ningun cliente sienta desconfianza alguna y no se produzcan malos tratos 
+                            en la comunicacion con el equipo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex justify-content-center pb-3">
+                <div class="card bg-danger text-dark cardOnLoad" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Comodidad</h5>
+                        <p class="card-text">Nosotros te ayudatemos a completar tus ideas 
+                            y te guiaremos por todo el camino hasta la meta, al final tu vision sera exactamente como 
+                            lo soñaste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-5">
+            <div class="col d-flex justify-content-center align-items-end">
+                <i id="icon_facebook" class="fab fa-facebook-f px-2 fs-4"></i>
+                <i id="icon_whatsapp" class="fab fa-whatsapp px-2 fs-4"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0d40d8f017.js" crossorigin="anonymous"></script>
+  
+    <script>
+        document.querySelector("#icon_facebook").addEventListener("click", e => {
+            //location = "facebook_path";
+        });
+        document.querySelector("#icon_whatsapp").addEventListener("click", e => {
+            //location = "whatsapp_path";
+        });
+        window.setTimeout(e => {
+            document.querySelectorAll(".card").forEach(e => {
+                e.classList.remove("cardOnLoad");
+                e.classList.add("cardOnReady");
+            });
+        }, 1700);
+    </script>
+</body>
+</html>
