@@ -1,0 +1,81 @@
+:root{
+    --colorPrincipal: #511f50;
+}
+
+.bgColorPrincipal{
+    background-color: var(--colorPrincipal);
+}
+.textColorPrincipal{
+    color:  var(--colorPrincipal);
+}
+.cardSubTitulo{
+    color: #894379;
+}
+.cardImg{
+    max-width: 3rem;
+}
+.colorAlertPrincipal{
+    background-color:#a060912a;
+    width: 23rem;
+    height: 6em;
+}
+main{
+    padding: 0.8em;
+}
+#fondo{
+    background-image: url("../images/bg-pattern-top-mobile.svg"), url("../images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat;
+    background-image: repeating-radial-gradient(100%,100%); 
+}
+
+    .centerMovil{
+        text-align:center;
+    }
+    .tituloPage{
+        text-align:center;
+        font-family: 'Xanh Mono', monospace;
+        font-size: 2em !important;
+    }
+    .textAlert{
+        text-align:center !important;
+        font-size:30em;
+    }
+
+    i {
+        cursor: pointer;
+        animation-name: fadeDisplay;
+        animation-duration: 3s;
+    }
+    
+
+@media(min-width: 720px) {
+    main{
+        padding: 7em;
+    }
+    .container-xl {
+        min-width: 80%;
+    }
+    #fondo{
+    background-image: url("../images/bg-pattern-top-desktop.svg"), url("../images/bg-pattern-bottom-desktop.svg");
+    background-repeat: no-repeat;
+    background-image: repeating-radial-gradient(100%,100%); 
+    }
+    .centerMovil{
+        text-align:justify;
+    }
+    .tituloPage{
+    text-align: start;
+    font-size: 3em !important;
+    
+    }
+    .textAlert{
+        text-align:left !important;
+    }
+    .colorAlertPrincipal{
+        background-color:#a060912a;
+        width: 23rem;
+        height: 3em;
+    }
+}
+
+
