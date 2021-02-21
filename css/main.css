@@ -46,9 +46,64 @@ main{
         animation-name: fadeDisplay;
         animation-duration: 3s;
     }
-    
 
+    
+@keyframes toUpFade {
+    from {
+        transform: translateY(500px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes toLeftFade {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes toUpFadeIcon {
+    from {
+        transform: translateY(300px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.hidden {
+    opacity: 0;
+}
+.servicesDiv {
+    animation: toLeftFade 2s ease;
+}
+.toUpFadeAnimation {
+    animation: toUpFade 1s ease;
+}
+.socialMedias {
+    animation: toUpFadeIcon 2s ease;
+}
+    
+@media(max-width: 719px) {
+    .servicesDiv > div > div {
+        height: 5em;
+        text-align: center;
+    }
+    .cardsRow br {
+        display: none !important;
+    }
+}
 @media(min-width: 720px) {
+    .socialMedias {
+        margin-top: 10em;
+    }
+    .cardsRow {
+        margin-top: 5em;
+    }
     main{
         padding: 7em;
     }
