@@ -23,7 +23,7 @@ main{
     padding: 0.8em;
 }
 #fondo{
-    background-image: url("../images/bg-pattern-top-mobile.svg"), url("../images/bg-pattern-bottom-mobile.svg");
+    /*background-image: url("../images/bg-pattern-top-mobile.svg"), url("../images/bg-pattern-bottom-mobile.svg");*/
     background-repeat: no-repeat;
     background-image: repeating-radial-gradient(100%,100%); 
 }
@@ -111,7 +111,7 @@ main{
         min-width: 80%;
     }
     #fondo{
-    background-image: url("../images/bg-pattern-top-desktop.svg"), url("../images/bg-pattern-bottom-desktop.svg");
+    /*background-image: url("../images/bg-pattern-top-desktop.svg"), url("../images/bg-pattern-bottom-desktop.svg");*/
     background-repeat: no-repeat;
     background-image: repeating-radial-gradient(100%,100%); 
     }
