@@ -9,7 +9,7 @@
     </style>
 
     <!-- displays site properly based on user's device -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
     <title>TlachialianiCode</title>
     <link rel="stylesheet" href="./css/main.css">
 
@@ -105,8 +105,8 @@
 
                             </h5>
                             <p class="text-white card-text">
-                                Tu página estara lista en no mas de una semana 
-                                por lo que no tendras que esperar tiempos absurdos de espera para ver 
+                                Tu página estará lista en no más de una semana 
+                                por lo que no tendrás que esperar tiempos absurdos de espera para ver 
                                 resultados tangibles.
                             </p>
                         </div>
@@ -126,9 +126,9 @@
                                 </div>
                             </div>
                             <p class="text-white card-text">
-                                Nosotros nos tomamos en serio la etica profesional para 
-                                que ningun cliente sienta desconfianza alguna y no se produzcan malos tratos 
-                                en la comunicacion con el equipo.
+                                Nosotros nos tomamos en serio la ética profesional para 
+                                que ningún cliente sienta desconfianza alguna y no se produzcan malos tratos 
+                                en la comunicación con el equipo.
                             </p>
                         </div>
                     </div>
@@ -149,9 +149,9 @@
                                 </div>
                             </div>
                             <p class="text-white card-text">
-                                Nosotros te ayudatemos a completar tus ideas 
-                                y te guiaremos por todo el camino hasta la meta, al final tu vision sera exactamente como 
-                                lo soñaste.
+                                Nosotros te ayudaremos a completar tus ideas 
+                                y te guiaremos por todo el camino hasta la meta, al final tu visión será completamente 
+                                funcional para día a día.
                             </p>
                         </div>
                     </div>
@@ -173,16 +173,16 @@
                                 <div class="media-body">
                                     <h5 class="card-title text-white"> Josue </h5>
                                     <h5 class="h6 cardSubTitulo">
-                                        Desarollador
+                                        Ingeniero en TICS
                                     </h5>
                                 </div>
                             </div>
 
                             </h5>
                             <p class="text-white card-text">
-                                "We needed the same printed design as the one we had ordered a week prior.
-                                Not only did they find the original order, but we also received it in time.
-                                Excellent!"
+                                "Nos comprometemos para ayudarte a que tengas un software de calidad, 
+                                manejar un diseño intuitivo y gran experiencia de usuario, garantizamos 
+                                una gran satisfacción."
                             </p>
                         </div>
                     </div>
@@ -196,13 +196,13 @@
                                 <div class="media-body">
                                     <h5 class="card-title text-white">Hilarión</h5>
                                     <h5 class="h6 cardSubTitulo">
-                                        Desarollador
+                                        Ingeniero en software
                                     </h5>
                                 </div>
                             </div>
                             <p class="text-white card-text">
-                                "Customer service is always excellent and very quick turn around. Completely
-                                delighted with the simplicity of the purchase and the speed of delivery."
+                                "Bienvenido a la familia, me encargare de guiarte a tus metas por el 
+                                buen camino, estaremos siempre en comunicacion y al tanto de tus necesidades."
                             </p>
                         </div>
                     </div>
@@ -215,13 +215,14 @@
                                 <div class="media-body">
                                     <h5 class="card-title text-white">Roberto</h5>
                                     <h5 class="h6 cardSubTitulo">
-                                        Relaciones públicas
+                                        Ingeniero en software
                                     </h5>
                                 </div>
                             </div>
                             <p class="text-white card-text">
-                                "Put an order with this company and can only praise them for the very high
-                                standard. Will definitely use them again and recommend them to everyone!"
+                                "De entrada, en nombre del equipo quiero agradecerte tu voto de confianza 
+                                para ayudarte a desarrollar tu idea, nuestra prioridad será entregarte un 
+                                producto profesional que se ajuste a tu negocio y a tu forma de trabajar."
                             </p>
                         </div>
                     </div>
@@ -234,33 +235,40 @@
     </div>
     <br>
     <br>
+    <a id="toUpButton" href="#top" class="toUpButton"><i class="fas fa-arrow-circle-up"></i></a>
 
     <script>
         document.querySelector("#icon_facebook").addEventListener("click", e => {
-            //location = "facebook_path";
+            window.open("https://www.facebook.com/TlachialianiCode-105811988227146");
         });
         document.querySelector("#icon_whatsapp").addEventListener("click", e => {
-            //location = "whatsapp_path";
+            window.open("https://api.whatsapp.com/send?phone=5213141002572");
         });
 
         (function() {
             var elements;
             var windowHeight;
+            let toUpButton = document.querySelector("#toUpButton");
 
             function init() {
-                elements = document.querySelectorAll('.hidden');
+                elements = document.querySelectorAll(".hidden");
                 windowHeight = window.innerHeight;
             }
 
             function checkPosition() {
-                for (var i = 0; i < elements.length; i++) {
-                var element = elements[i];
-                var positionFromTop = elements[i].getBoundingClientRect().top;
+                for (let i = 0; i < elements.length; i++) {
+                    let element = elements[i];
+                    positionFromTop = elements[i].getBoundingClientRect().top;
 
-                if (positionFromTop - windowHeight <= 0) {
-                    element.classList.add('toUpFadeAnimation');
-                    element.classList.remove('hidden');
-                }
+                    if (positionFromTop - windowHeight <= 0) {
+                        element.classList.add("toUpFadeAnimation");
+                        element.classList.remove("hidden");
+                    }
+                    if (window.scrollY > 300) {
+                        toUpButton.classList.remove("hidden");
+                    } else {
+                        toUpButton.classList.add("hidden");
+                    }
                 }
             }
 
@@ -269,6 +277,13 @@
 
             init();
             checkPosition();
+
+            toUpButton.addEventListener("click", e => {
+                window.scroll({
+                    top: 0,
+                    behavor: "smooth"
+                });
+            });
         })();
     </script>
     
