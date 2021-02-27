@@ -22,12 +22,6 @@
 main{
     padding: 0.8em;
 }
-#fondo{
-    background-image: url("../images/bg-pattern-top-mobile.svg"), url("../images/bg-pattern-bottom-mobile.svg");
-    background-repeat: no-repeat;
-    background-image: repeating-radial-gradient(100%,100%); 
-}
-
     .centerMovil{
         text-align:center;
     }
@@ -66,6 +60,26 @@ main{
         opacity: 1;
     }
 }
+@keyframes toLeftFadeDelay1 {
+    from {
+        transform: translateX(130px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes toLeftFadeDelay2 {
+    from {
+        transform: translateX(160px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 @keyframes toUpFadeIcon {
     from {
         transform: translateY(300px);
@@ -74,18 +88,68 @@ main{
         transform: translateY(0);
     }
 }
+@keyframes shake {
+    0% {
+    }
+    33% {
+        transform: rotate3d(0, 0, 1, 30deg);
+    }
+    66% {
+        transform: rotate3d(0, 0, 1, -30deg);
+    }
+}
 
 .hidden {
-    opacity: 0;
+    opacity: 0 !important;
 }
-.servicesDiv {
+.servicesDiv > div:nth-child(1) {
     animation: toLeftFade 2s ease;
+}
+.servicesDiv > div:nth-child(2) {
+    animation: toLeftFadeDelay1 2s ease;
+}
+.servicesDiv > div:nth-child(3) {
+    animation: toLeftFadeDelay2 2s ease;
 }
 .toUpFadeAnimation {
     animation: toUpFade 1s ease;
 }
 .socialMedias {
     animation: toUpFadeIcon 2s ease;
+}
+.socialMedias i {
+    transition: color 1s ease;
+}
+.socialMedias i:hover {
+    animation: shake 1s ease;
+}
+.socialMedias i:nth-child(2):hover {
+    color: rgb(64, 206, 64);
+}
+.socialMedias i:nth-child(1):hover {
+    color: rgb(38, 71, 255);
+}
+.toUpButton {
+    position: fixed;
+    bottom: 1em;
+    right: 10%;
+    z-index: 10;
+    font-size: 3rem;
+    opacity: .6;
+    color: rgb(50, 50, 50) !important;
+    transition: opacity .5s ease;
+}
+.toUpButton:hover {
+    opacity: 1;
+}
+#fondo {
+    position: relative;
+}
+html {
+    scroll-behavior: smooth;
+}
+.card > div > p {
+    font-style: italic !important;
 }
     
 @media(max-width: 719px) {
@@ -109,11 +173,6 @@ main{
     }
     .container-xl {
         min-width: 80%;
-    }
-    #fondo{
-    background-image: url("../images/bg-pattern-top-desktop.svg"), url("../images/bg-pattern-bottom-desktop.svg");
-    background-repeat: no-repeat;
-    background-image: repeating-radial-gradient(100%,100%); 
     }
     .centerMovil{
         text-align:justify;
