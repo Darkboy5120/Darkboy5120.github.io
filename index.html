@@ -1,290 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&display=swap');
-    </style>
-
-    <!-- displays site properly based on user's device -->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
-    <title>TlachialianiCode</title>
-    <link rel="stylesheet" href="./css/main.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
-    </script>
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/0d40d8f017.js" crossorigin="anonymous"></script>
-</head>
-
-<body class="bg-light">
-    <br>
-    <br>
-    <div id="fondo" class="rounded border border-white container-xl shadow-lg bg-white">
+        <title>TlachialianiCode</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="./css/main.css">
+        <!-- Font Awesome -->
+        <script src="https://kit.fontawesome.com/0d40d8f017.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
         <main>
-            <div class="row">
-                <div class="col-lg-5  col-md-12 col-12">
-                    <h1 class="tituloPage textColorPrincipal display-4 font-weight-bold"  >
-                        TlachialianiCode
-                    </h1>
-                    <p class="centerMovil">Bienvenido a TlachialianiCode, el equipo de trabajo que 
-                        necesitas para hacer realidad tu idea o ayudarte a mejorar el rendimiento 
-                        de tu negocio mediante una solucion de software. Te invitamos a charlar con nosotros 
-                        para comenzar a desarrollar tu gran idea.
-                    </p>
-                </div>
-                <div class="col-1">
-
-                </div>
-                <div class=" col-lg col-md col-12 align-self-center servicesDiv">
-                    <div class="d-flex justify-content-start">
-                        <div class="alert colorAlertPrincipal textColorPrincipal font-weight-bold" role="alert">
-                            <div class="mx-auto text-center">
-                                <i class="float-md-left fas fa-cloud"></i>
-                            </div>
-                            <label>&nbsp Desarollo Web</label>
-                        </div>
+            <section>
+                <article>
+                    <header>
+                        <h1 class="hidden" id="sectionIntro">TlachilianiCode</h1>
+                        <p class="hidden">Bienvenido a TlachialianiCode, el equipo de trabajo que necesitas para hacer 
+                            realidad tu idea o ayudarte a mejorar el rendimiento de tu negocio mediante 
+                            una solucion de software. Te invitamos a charlar con nosotros para comenzar 
+                            a desarrollar tu gran idea.</p>
+                    </header>
+                </article>
+                <article class="card-feature">
+                    <div>
+                        &nbsp;<i class="float-md-left fas fa-cloud"></i>
+                        <span>&nbsp; Desarrollo Web</span>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <div class="alert colorAlertPrincipal textColorPrincipal font-weight-bold" role="alert">
-                            <div class="mx-auto text-center">
-                                <i class="float-md-left fas fa-desktop"></i>
-                            </div>
-                            <label>&nbsp Desarollo Desktop </label>
-                        </div>
+                    <div>
+                        <i class="float-md-left fas fa-mobile-alt"></i>
+                        <span>&nbsp; Desarrollo Movil</span>
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <div class="alert colorAlertPrincipal textColorPrincipal font-weight-bold" role="alert">
-                            <div class="mx-auto text-center">
-                                <i class="float-md-left fas fa-mobile-alt"></i>
-                            </div>
-                            <label>&nbsp Desarollo Movil</label>
-                        </div>
+                    <div>
+                        <i class="float-md-left fas fa-desktop"></i>
+                        <span>&nbsp; Desarrollo Escritorio</span>
                     </div>
-
+                </article>
+            </section>
+            <section class="hidden" id="sectionWhy">
+                <h2>¿Por que nosostros?</h2>
+                <div class="card-wrapper">
+                    <article class="card-generic">
+                        <div class="card-title">
+                            <i class="far fa-star fa-2x"></i>
+                            <h3>&nbsp;Rendimiento</h3>
+                        </div>
+                        <p>Tu página estará lista en no más de una semana 
+                            por lo que no tendrás que esperar tiempos absurdos de espera para ver 
+                            resultados tangibles.</p>
+                    </article>
+                    <article class="card-generic">
+                        <div class="card-title">
+                            <i class="far fa-star fa-2x"></i>
+                            <h3>&nbsp;Profesional</h3>
+                        </div>
+                        <p>Nosotros nos tomamos en serio la ética profesional para 
+                            que ningún cliente sienta desconfianza alguna y no se produzcan malos tratos 
+                            en la comunicación con el equipo.</p>
+                    </article>
+                    <article class="card-generic">
+                        <div class="card-title">
+                            <i class="far fa-star fa-2x"></i>
+                            <h3>&nbsp;Comodidad</h3>
+                        </div>
+                        <p>Nosotros te ayudaremos a completar tus ideas 
+                            y te guiaremos por todo el camino hasta la meta, al final tu visión será completamente 
+                            funcional para día a día.</p>
+                    </article>
                 </div>
-                <div class="col-md-1">
-
+            </section>
+            <section class="hidden" id="sectionTeam">
+                <h2>Equipo de trabajo</h2>
+                <div class="card-wrapper">
+                    <article class="card-generic">
+                        <div class="card-title">
+                            <i class="fas fa-user-circle fa-2x"></i>
+                            <h3>&nbsp;Josue</h3>
+                        </div>
+                        <p>"Nos comprometemos para ayudarte a que tengas un software de calidad, 
+                            manejar un diseño intuitivo y gran experiencia de usuario, garantizamos 
+                            una gran satisfacción."</p>
+                    </article>
+                    <article class="card-generic">
+                        <div class="card-title">
+                            <i class="fas fa-user-circle fa-2x"></i>
+                            <h3>&nbsp;Hilarión</h3>
+                        </div>
+                        <p>"Bienvenido a la familia, me encargare de guiarte a tus metas por el 
+                            buen camino, estaremos siempre en comunicacion y al tanto de tus necesidades."</p>
+                    </article>
+                    <article class="card-generic">
+                        <div class="card-title">
+                            <i class="fas fa-user-circle fa-2x"></i>
+                            <h3>&nbsp;Roberto</h3>
+                        </div>
+                        <p>"De entrada, en nombre del equipo quiero agradecerte tu voto de confianza 
+                            para ayudarte a desarrollar tu idea, nuestra prioridad será entregarte un 
+                            producto profesional que se ajuste a tu negocio y a tu forma de trabajar."</p>
+                    </article>
                 </div>
+            </section>
+            <footer class="hidden">
+                <div>
+                    <i id="icon_facebook" class="fab fa-facebook-f px-2"></i>
+                    <i id="icon_whatsapp" class="fab fa-whatsapp px-2"></i>
+                </div>
+                <h3>Contactanos</h3>
+            </footer>
+            <div class="hidden" id="toUpButton"><i class="fas fa-chevron-up fa-2x"></i></div>
+            <div id="loadingScreen">
+                <img class="fa-spin" src="img/favicon.png" alt="logo">
             </div>
-
-            <br><br>
-            
-            <div class="row socialMedias">
-                <div class="col d-flex justify-content-center align-items-end">
-                    <i id="icon_facebook" class="fab fa-facebook-f px-2" style="font-size:2em;"></i>
-                    <i id="icon_whatsapp" class="fab fa-whatsapp px-2" style="font-size:2em;"></i>
-                </div>
-            </div>
-
-            <br><br>
-
-            <h3 class="text-center my-5 hidden">¿Por que nosotros?</h3>
-            <div class="row row-cols-1 row-cols-md-3 cardsRow">
-                <div class="col mb-4 ">
-                    <div class="card h-100 hidden">
-                        <div class="rounded card-body bgColorPrincipal">
-                            <div class="media">
-                                <i class="far fa-star fa-2x text-white cardImg mr-4"></i>
-                                <div class="media-body">
-                                    <h5 class="card-title text-white">Garantía</h5>
-                                    <h5 class="h6 cardSubTitulo invisible">
-                                        foo
-                                    </h5>
-                                </div>
-                            </div>
-
-                            </h5>
-                            <p class="text-white card-text">
-                                Tu página tendrá un óptimo rendimiento, nos encargaremos que tenga el mayor rendimiento posible.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <br>
-                    <div class="card h-100 hidden">
-                        <div class="rounded card-body bgColorPrincipal">
-                            <div class="media">
-                                <i class="far fa-star fa-2x text-white cardImg mr-4"></i>
-                                <div class="media-body">
-                                    <h5 class="card-title text-white">Profesionalismo</h5>
-                                    <h5 class="h6 cardSubTitulo invisible">
-                                        foo
-                                    </h5>
-                                </div>
-                            </div>
-                            <p class="text-white card-text">
-                                Nosotros nos tomamos en serio la ética profesional para 
-                                que ningún cliente sienta desconfianza alguna y no se produzcan malos tratos 
-                                en la comunicación con el equipo.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <br>
-                    <br>
-
-                    <div class="card h-100 hidden">
-                        <div class="rounded card-body bgColorPrincipal">
-                            <div class="media">
-                                <i class="far fa-star fa-2x text-white cardImg mr-4"></i>
-                                <div class="media-body">
-                                    <h5 class="card-title text-white">Comodidad</h5>
-                                    <h5 class="h6 cardSubTitulo invisible">
-                                        foo
-                                    </h5>
-                                </div>
-                            </div>
-                            <p class="text-white card-text">
-                                Nosotros te ayudaremos a completar tus ideas 
-                                y te guiaremos por todo el camino hasta la meta, al final tu visión será completamente 
-                                funcional para día a día.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <br><br>
-
-            <h3 class="text-center my-5 hidden">Equipo de trabajo</h3>
-            <div class="row row-cols-1 row-cols-md-3 cardsRow">
-                <div class="col mb-4 ">
-                    <br>
-                    <br>
-                    
-                    <div class="card h-100 hidden">
-                        <div class="rounded card-body bgColorPrincipal">
-                            <div class="media">
-                                <i class="fas fa-user-circle fa-2x text-white cardImg mr-4"></i>
-                                <div class="media-body">
-                                    <h5 class="card-title text-white"> Josue </h5>
-                                    <h5 class="h6 cardSubTitulo">
-                                        Ingeniero en TICS
-                                    </h5>
-                                </div>
-                            </div>
-
-                            </h5>
-                            <p class="text-white card-text">
-                                "Nos comprometemos para ayudarte a que tengas un software de calidad, 
-                                manejar un diseño intuitivo y gran experiencia de usuario, garantizamos 
-                                una gran satisfacción."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <br>
-                    <div class="card h-100 hidden">
-                        <div class="rounded card-body bgColorPrincipal">
-                            <div class="media">
-                                <i class="fas fa-user-circle fa-2x text-white cardImg mr-4"></i>
-                                <div class="media-body">
-                                    <h5 class="card-title text-white">Hilarión</h5>
-                                    <h5 class="h6 cardSubTitulo">
-                                        Ingeniero en software
-                                    </h5>
-                                </div>
-                            </div>
-                            <p class="text-white card-text">
-                                "Bienvenido a la familia, me encargare de guiarte a tus metas por el 
-                                buen camino, estaremos siempre en comunicacion y al tanto de tus necesidades."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col mb-4">
-                    <div class="card h-100 hidden">
-                        <div class="rounded card-body bgColorPrincipal">
-                            <div class="media">
-                                <i class="fas fa-user-circle fa-2x text-white cardImg mr-4"></i>
-                                <div class="media-body">
-                                    <h5 class="card-title text-white">Roberto</h5>
-                                    <h5 class="h6 cardSubTitulo">
-                                        Ingeniero en software
-                                    </h5>
-                                </div>
-                            </div>
-                            <p class="text-white card-text">
-                                "De entrada, en nombre del equipo quiero agradecerte tu voto de confianza 
-                                para ayudarte a desarrollar tu idea, nuestra prioridad será entregarte un 
-                                producto profesional que se ajuste a tu negocio y a tu forma de trabajar."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <br><br>
-
         </main>
-    </div>
-    <br>
-    <br>
-    <a id="toUpButton" href="#top" class="toUpButton"><i class="fas fa-arrow-circle-up"></i></a>
+        <script>
+            (function() {
+                window.onload = function () {
+                    document.querySelector("#loadingScreen").style.left = "-100vw";
+                    document.querySelector("body").style.display = "block";
+                    window.setTimeout(() => {
+                        document.querySelector("#loadingScreen").style.display= "none";
+                    }, 1500);
+                };
+                
+                var elements;
+                var windowHeight;
+                let toUpButton = document.querySelector("#toUpButton");
 
-    <script>
-        document.querySelector("#icon_facebook").addEventListener("click", e => {
-            window.open("https://www.facebook.com/TlachialianiCode-105811988227146");
-        });
-        document.querySelector("#icon_whatsapp").addEventListener("click", e => {
-            window.open("https://api.whatsapp.com/send?phone=5213141002572");
-        });
+                function init() {
+                    elements = document.querySelectorAll(".hidden");
+                    windowHeight = window.innerHeight;
+                }
 
-        (function() {
-            var elements;
-            var windowHeight;
-            let toUpButton = document.querySelector("#toUpButton");
+                function checkPosition() {
+                    for (let i = 0; i < elements.length; i++) {
+                        let element = elements[i];
+                        positionFromTop = elements[i].getBoundingClientRect().top;
 
-            function init() {
-                elements = document.querySelectorAll(".hidden");
-                windowHeight = window.innerHeight;
-            }
-
-            function checkPosition() {
-                for (let i = 0; i < elements.length; i++) {
-                    let element = elements[i];
-                    positionFromTop = elements[i].getBoundingClientRect().top;
-
-                    if (positionFromTop - windowHeight <= 0) {
-                        element.classList.add("toUpFadeAnimation");
-                        element.classList.remove("hidden");
-                    }
-                    if (window.scrollY > 300) {
-                        toUpButton.classList.remove("hidden");
-                    } else {
-                        toUpButton.classList.add("hidden");
+                        if (positionFromTop - windowHeight <= 0) {
+                            element.classList.add("to-up-fade-animation");
+                            element.classList.remove("hidden");
+                        }
+                        if (window.scrollY > 300) {
+                            toUpButton.classList.remove("hidden");
+                        } else {
+                            toUpButton.classList.add("hidden");
+                        }
                     }
                 }
-            }
 
-            window.addEventListener('scroll', checkPosition);
-            window.addEventListener('resize', init);
+                window.addEventListener('scroll', checkPosition);
+                window.addEventListener('resize', init);
 
-            init();
-            checkPosition();
+                init();
+                checkPosition();
 
-            toUpButton.addEventListener("click", e => {
-                window.scroll({
-                    top: 0,
-                    behavor: "smooth"
+                toUpButton.addEventListener("click", e => {
+                    window.scroll({
+                        top: 0,
+                        behavor: "smooth"
+                    });
                 });
-            });
-        })();
-    </script>
-    
-</body>
 
+                document.querySelector("#icon_facebook").addEventListener("click", e => {
+                    window.open("https://www.facebook.com/TlachialianiCode-105811988227146");
+                });
+                document.querySelector("#icon_whatsapp").addEventListener("click", e => {
+                    window.open("https://api.whatsapp.com/send?phone=5213141002572");
+                });
+            })();
+        </script>
+    </body>
 </html>

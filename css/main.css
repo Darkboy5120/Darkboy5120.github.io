@@ -1,88 +1,8 @@
-:root{
-    --colorPrincipal: #511f50;
-}
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&display=swap');
 
-.bgColorPrincipal{
-    background-color: var(--colorPrincipal);
-}
-.textColorPrincipal{
-    color:  var(--colorPrincipal);
-}
-.cardSubTitulo{
-    color: #894379;
-}
-.cardImg{
-    max-width: 3rem;
-}
-.colorAlertPrincipal{
-    background-color:#a060912a;
-    width: 23rem;
-    height: 6em;
-}
-main{
-    padding: 0.8em;
-}
-    .centerMovil{
-        text-align:center;
-    }
-    .tituloPage{
-        text-align:center;
-        font-family: 'Xanh Mono', monospace;
-        font-size: 2em !important;
-    }
-    .textAlert{
-        text-align:center !important;
-        font-size:30em;
-    }
-
-    i {
-        cursor: pointer;
-        animation-name: fadeDisplay;
-        animation-duration: 3s;
-    }
-
-    
 @keyframes toUpFade {
     from {
         transform: translateY(500px);
-    }
-    to {
-        transform: translateY(0);
-    }
-}
-@keyframes toLeftFade {
-    from {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes toLeftFadeDelay1 {
-    from {
-        transform: translateX(130px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes toLeftFadeDelay2 {
-    from {
-        transform: translateX(160px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes toUpFadeIcon {
-    from {
-        transform: translateY(300px);
     }
     to {
         transform: translateY(0);
@@ -98,98 +18,257 @@ main{
         transform: rotate3d(0, 0, 1, -30deg);
     }
 }
-
+@keyframes toLeftFade {
+    from {
+        transform: translateX(300px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes toLeftFadeDelay1 {
+    from {
+        transform: translateX(330px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes toLeftFadeDelay2 {
+    from {
+        transform: translateX(360px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+:root{
+    --primaryColor: #511f50;
+    --secondaryColor: #a060912a;
+}
+html, body {
+    max-width: 100vw;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body {
+    padding: 4% 7% 7% 7%;
+    background-color: rgba(245, 245, 245, 1);
+}
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 10% 7% 10% 7%;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 12px 4px rgba(200, 200, 200, .5);
+    border-radius: 2px;
+}
+main > section:first-child {
+    display: flex;
+    flex-wrap: wrap;
+}
+main > section {
+    min-height: 40rem;
+}
+section > article {
+    flex-grow: 1;
+    max-width: 50%;
+}
+section > h2 {
+    text-align: center;
+    margin-top: 5rem;
+}
+.card-feature {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: var(--primaryColor);
+    font-weight: bold;
+}
+.card-feature > div {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondaryColor);
+    width: 70%;
+    padding: .8rem 2rem .8rem 2rem;
+    margin: .5rem 0 .5rem 0;
+    border-radius: 4px;
+}
+.card-feature > div:nth-child(1) {
+    animation: toLeftFade 3s ease;
+}
+.card-feature > div:nth-child(2) {
+    animation: toLeftFadeDelay1 3s ease;
+}
+.card-feature > div:nth-child(3) {
+    animation: toLeftFadeDelay2 3s ease;
+}
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card-generic {
+    display: flex;
+    flex-direction: column;
+    max-width: 15rem;
+    padding: 1.5rem;
+    margin: 2rem 0 0 0;
+    color: white;
+    background-color: var(--primaryColor);
+    border-radius: 5px;
+}
+.card-generic > p {
+    font-style: italic;
+}
+.card-generic > .card-title {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+.fa-star {
+    color: rgba(255, 215, 0, .8);
+}
+.fa-user-circle {
+    color: rgba(220, 220, 220, 1);
+}
+h1, h2, h3 {
+    font-family: 'Xanh Mono', monospace;
+    margin: 0;
+}
+h1 {
+    font-size: 2.6rem;
+    color: var(--primaryColor);
+}
+h2 {
+    font-size: 2rem;
+    color: var(--primaryColor);
+}
+h3 {
+    font-size: 1.4rem;
+}
+p, span {
+    font-size: 1rem;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",
+        "Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 15rem;
+    animation: toUpFadeIcon 2s ease;
+}
+footer > div {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+footer > div > i {
+    padding: 0 1rem 0 1rem;
+    transition: color 1s ease;
+    cursor: pointer;
+}
+footer > div > i:hover {
+    animation: shake 1s ease;
+}
+footer > div > i:nth-child(1):hover {
+    color: rgb(38, 71, 255);
+}
+footer > div > i:nth-child(2):hover {
+    color: rgb(64, 206, 64);
+}
+#toUpButton {
+    position: fixed;
+    bottom: 8rem;
+    right: 10%;
+    cursor: pointer;
+    padding: .5rem;
+    background-color: var(--primaryColor);
+    opacity: .8;
+    color: white;
+    border-radius: 20px;
+    transition: border-radius .5s ease, 
+        opacity .5s ease;
+}
+#toUpButton:hover {
+    border-radius: 0;
+    opacity: 1;
+}
+#loadingScreen {
+    position: fixed;
+    font-size: 10rem;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    background-color: gray;
+    background-image: repeating-linear-gradient(rgba(100, 100, 100, .1), rgba(200, 200, 200, .1) 1%);
+    color: var(--primaryColor);
+    transition: all 1.5s ease;
+}
+#loadingScreen > img {
+    width: 200px;
+}
+.to-up-fade-animation {
+    animation: toUpFade 1.5s ease;
+}
 .hidden {
     opacity: 0 !important;
 }
-.servicesDiv > div:nth-child(1) {
-    animation: toLeftFade 2s ease;
+@media(min-width: 769px) {
+    .card-feature > div:nth-child(2) {
+        margin-left: 10% !important;
+    }
+    .card-feature > div:nth-child(3) {
+        margin-left: 20% !important;
+    }
 }
-.servicesDiv > div:nth-child(2) {
-    animation: toLeftFadeDelay1 2s ease;
+@media(min-width: 426px) and (max-width: 768px) {
+    h1 {
+        font-size: 2.6rem !important;
+    }
 }
-.servicesDiv > div:nth-child(3) {
-    animation: toLeftFadeDelay2 2s ease;
-}
-.toUpFadeAnimation {
-    animation: toUpFade 1s ease;
-}
-.socialMedias {
-    animation: toUpFadeIcon 2s ease;
-}
-.socialMedias i {
-    transition: color 1s ease;
-}
-.socialMedias i:hover {
-    animation: shake 1s ease;
-}
-.socialMedias i:nth-child(2):hover {
-    color: rgb(64, 206, 64);
-}
-.socialMedias i:nth-child(1):hover {
-    color: rgb(38, 71, 255);
-}
-.toUpButton {
-    position: fixed;
-    bottom: 1em;
-    right: 10%;
-    z-index: 10;
-    font-size: 3rem;
-    opacity: .6;
-    color: rgb(50, 50, 50) !important;
-    transition: opacity .5s ease;
-}
-.toUpButton:hover {
-    opacity: 1;
-}
-#fondo {
-    position: relative;
-}
-html {
-    scroll-behavior: smooth;
-}
-.card > div > p {
-    font-style: italic !important;
-}
-    
-@media(max-width: 719px) {
-    .servicesDiv > div > div {
-        height: 5em;
+@media(max-width: 768px) {
+    body {
+        padding: 5% 0 0 0 !important;
+    }
+    main > section {
+        min-height: 45rem;
+    }
+    section > article {
+        max-width: 100%;
+    }
+    .card-feature > div {
+        flex-flow: column;
+        width: 100%;
+        min-height: 3rem;
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .card-generic {
+        min-width: 90%;
+    }
+    h1 {
+        font-size: 1.8rem;
         text-align: center;
     }
-    .cardsRow br {
-        display: none !important;
+    p, span {
+        font-size: 1rem;
+        text-align: center;
     }
 }
-@media(min-width: 720px) {
-    .socialMedias {
-        margin-top: 10em;
-    }
-    .cardsRow {
-        margin-top: 5em;
-    }
-    main{
-        padding: 7em;
-    }
-    .container-xl {
-        min-width: 80%;
-    }
-    .centerMovil{
-        text-align:justify;
-    }
-    .tituloPage{
-    text-align: start;
-    font-size: 3em !important;
-    
-    }
-    .textAlert{
-        text-align:left !important;
-    }
-    .colorAlertPrincipal{
-        background-color:#a060912a;
-        width: 23rem;
-        height: 3em;
-    }
-}
-
-
