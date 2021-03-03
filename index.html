@@ -16,8 +16,8 @@
             <section>
                 <article>
                     <header>
-                        <h1 class="hidden" id="sectionIntro">TlachilianiCode</h1>
-                        <p class="hidden">Bienvenido a TlachialianiCode, el equipo de trabajo que necesitas para hacer 
+                        <h1 id="sectionIntro">TlachilianiCode</h1>
+                        <p>Bienvenido a TlachialianiCode, el equipo de trabajo que necesitas para hacer 
                             realidad tu idea o ayudarte a mejorar el rendimiento de tu negocio mediante 
                             una solucion de software. Te invitamos a charlar con nosotros para comenzar 
                             a desarrollar tu gran idea.</p>
@@ -116,11 +116,13 @@
         <script>
             (function() {
                 window.onload = function () {
-                    document.querySelector("#loadingScreen").style.left = "-100vw";
-                    document.querySelector("body").style.display = "block";
                     window.setTimeout(() => {
-                        document.querySelector("#loadingScreen").style.display= "none";
-                    }, 1500);
+                        document.querySelector("#loadingScreen").style.left = "-100vw";
+                        document.querySelector("body").style.display = "block";
+                        window.setTimeout(() => {
+                            document.querySelector("#loadingScreen").style.display= "none";
+                        }, 1500);
+                    }, 1000);
                 };
                 
                 var elements;
