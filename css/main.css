@@ -58,7 +58,7 @@ html, body {
     scroll-behavior: smooth;
 }
 body {
-    padding: 4% 7% 7% 7%;
+    padding: 4% 7% 4% 7%;
     background-color: rgba(245, 245, 245, 1);
 }
 main {
@@ -103,6 +103,26 @@ section > h2 {
     padding: .8rem 2rem .8rem 2rem;
     margin: .5rem 0 .5rem 0;
     border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+}
+.card-feature > div > .feature-info {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: .5rem;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    font-weight: normal;
+    transform: translateY(0%);
+    transition: all .3s ease;
+    border-radius: 0 0 5px 5px;
+}
+.card-feature > div:hover > .feature-info {
+    opacity: 1 !important;
+    transform: translateY(100%) !important;
+    z-index: 1;
 }
 .card-feature > div:nth-child(1) {
     animation: toLeftFade 3s ease 1s;
@@ -194,8 +214,8 @@ footer > div > i:nth-child(2):hover {
 }
 #toUpButton {
     position: fixed;
-    bottom: 8rem;
-    right: 10%;
+    bottom: 15%;
+    right: 8%;
     cursor: pointer;
     padding: .5rem;
     background-color: var(--primaryColor);
@@ -226,6 +246,57 @@ footer > div > i:nth-child(2):hover {
 }
 #loadingScreen > img {
     width: 200px;
+}
+#indexButton {
+    position: fixed;
+    top: 10%;
+    right: 8%;
+    color: white;
+    padding: .5rem;
+    background-color: var(--primaryColor);
+    cursor: pointer;
+    opacity: .8;
+    border-radius: 20px;
+    transition: border-radius .5s ease, 
+        opacity .5s ease;
+}
+#indexButton:hover {
+    opacity: 1;
+    border-radius: 0;
+}
+#navMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: gray;
+    background-image: repeating-linear-gradient(rgba(100, 100, 100, .1), rgba(200, 200, 200, .1) 1%);
+    transition: all 1s ease;
+}
+#navMenu > i {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    color: var(--primaryColor);
+    font-size: 4rem;
+    cursor: pointer;
+}
+#navMenu > i:hover {
+    color: rgb(170, 50, 50);
+}
+#navMenu > h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+#navMenu > h2:hover {
+    color: white;
 }
 .to-up-fade-animation {
     animation: toUpFade 1.5s ease;
@@ -274,5 +345,19 @@ footer > div > i:nth-child(2):hover {
     p, span {
         font-size: 1rem;
         text-align: center;
+    }
+
+}
+@media(max-width: 425px) {
+    #toUpButton {
+        bottom: 10%;
+        right: 4%;
+    }
+    #indexButton {
+        top: 4%;
+        right: 4%;
+    }
+    #navMenu > h2 {
+        font-size: 2rem;
     }
 }

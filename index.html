@@ -13,7 +13,7 @@
     </head>
     <body>
         <main>
-            <section>
+            <section id="sectionHome">
                 <article>
                     <header>
                         <h1 id="sectionIntro">TlachilianiCode</h1>
@@ -27,14 +27,24 @@
                     <div>
                         &nbsp;<i class="float-md-left fas fa-cloud"></i>
                         <span>&nbsp; Desarrollo Web</span>
+                        <div class="feature-info">
+                            <span>Aplicaciones para celular y computadora que usan el navegador.
+                            </span>
+                        </div>
                     </div>
                     <div>
                         <i class="float-md-left fas fa-mobile-alt"></i>
                         <span>&nbsp; Desarrollo Movil</span>
+                        <div class="feature-info">
+                            <span>Aplicaciones para el celular que no usan el navegador.</span>
+                        </div>
                     </div>
                     <div>
                         <i class="float-md-left fas fa-desktop"></i>
                         <span>&nbsp; Desarrollo Escritorio</span>
+                        <div class="feature-info">
+                            <span>Aplicaciones para la computadora que no usan el navegador.</span>
+                        </div>
                     </div>
                 </article>
             </section>
@@ -46,7 +56,7 @@
                             <i class="far fa-star fa-2x"></i>
                             <h3>&nbsp;Rendimiento</h3>
                         </div>
-                        <p>Tu página estará lista en no más de una semana 
+                        <p>Tu página estará lista en no más de dos semana 
                             por lo que no tendrás que esperar tiempos absurdos de espera para ver 
                             resultados tangibles.</p>
                     </article>
@@ -55,9 +65,10 @@
                             <i class="far fa-star fa-2x"></i>
                             <h3>&nbsp;Profesional</h3>
                         </div>
-                        <p>Nosotros nos tomamos en serio la ética profesional para 
+                        <p>Nos tomamos en serio la ética profesional para 
                             que ningún cliente sienta desconfianza alguna y no se produzcan malos tratos 
-                            en la comunicación con el equipo.</p>
+                            en la comunicación con el equipo, ten por seguro que nuestras decisiones se rigen 
+                            por un estricto codigo etico.</p>
                     </article>
                     <article class="card-generic">
                         <div class="card-title">
@@ -87,7 +98,7 @@
                             <i class="fas fa-user-circle fa-2x"></i>
                             <h3>&nbsp;Hilarión</h3>
                         </div>
-                        <p>"Bienvenido a la familia, me encargare de guiarte a tus metas por el 
+                        <p>"Bienvenido a la familia, nos encargaremos de guiarte a tus metas por el 
                             buen camino, estaremos siempre en comunicacion y al tanto de tus necesidades."</p>
                     </article>
                     <article class="card-generic">
@@ -101,14 +112,25 @@
                     </article>
                 </div>
             </section>
-            <footer class="hidden">
+            <footer id="sectionContact" class="hidden">
                 <div>
                     <i id="icon_facebook" class="fab fa-facebook-f px-2"></i>
                     <i id="icon_whatsapp" class="fab fa-whatsapp px-2"></i>
                 </div>
                 <h3>Contactanos</h3>
             </footer>
+            
             <div class="hidden" id="toUpButton"><i class="fas fa-chevron-up fa-2x"></i></div>
+            <div id="indexButton">
+                <i class="fas fa-th-list fa-2x"></i>
+            </div>
+            <nav id="navMenu">
+                <i id="closeNavMenuButton" class="fas fa-times"></i>
+                <h2 data-navMenuTab="sectionHome">Home</h2>
+                <h2 data-navMenuTab="sectionWhy">¿Por que nosotros?</h2>
+                <h2 data-navMenuTab="sectionTeam">Equipo de trabajo</h2>
+                <h2 data-navMenuTab="sectionContact">Contacto</h2>
+            </nav>
             <div id="loadingScreen">
                 <img class="fa-spin" src="img/favicon.png" alt="logo">
             </div>
@@ -157,11 +179,46 @@
                 init();
                 checkPosition();
 
+                let indexButton = document.querySelector("#indexButton");
+                let closeNavMenuButton = document.querySelector("#closeNavMenuButton");
+                let navMenuState = false;
+                let sectionHome = document.querySelector("#sectionHome");
+                let sectionWhy = document.querySelector("#sectionWhy");
+                let sectionTeam = document.querySelector("#sectionTeam");
+                let sectionContact = document.querySelector("#sectionContact");
+
+                window.onclick = function (e) {
+                    if (e.target.hasAttribute("data-navMenuTab")) {
+                        const attValue = e.target.getAttribute("data-navMenuTab");
+                        navMenuState = false;
+                        document.querySelector("#navMenu").style.top = "100vh";
+                        if (attValue == "sectionHome") {
+                            window.scroll({
+                                top: 0,
+                                behavor: "smooth"
+                            });
+                            return;
+                        }
+                        document.querySelector(`#${attValue}`).scrollIntoView();
+                    }
+                }
+
                 toUpButton.addEventListener("click", e => {
                     window.scroll({
                         top: 0,
                         behavor: "smooth"
                     });
+                });
+
+                indexButton.addEventListener("click", e => {
+                    navMenuState = !navMenuState;
+                    document.querySelector("#navMenu").style.top = (navMenuState) 
+                        ? "0" : "100vh";
+                });
+
+                closeNavMenuButton.addEventListener("click", e => {
+                    navMenuState = false;
+                    document.querySelector("#navMenu").style.top = "100vh";
                 });
 
                 document.querySelector("#icon_facebook").addEventListener("click", e => {
