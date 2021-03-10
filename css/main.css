@@ -2,7 +2,7 @@
 
 @keyframes toUpFade {
     from {
-        transform: translateY(500px);
+        transform: translateY(200px);
     }
     to {
         transform: translateY(0);
@@ -30,7 +30,7 @@
 }
 @keyframes toLeftFadeDelay1 {
     from {
-        transform: translateX(330px);
+        transform: translateX(340px);
         opacity: 0;
     }
     to {
@@ -40,12 +40,50 @@
 }
 @keyframes toLeftFadeDelay2 {
     from {
-        transform: translateX(360px);
+        transform: translateX(380px);
         opacity: 0;
     }
     to {
         transform: translateX(0);
         opacity: 1;
+    }
+}
+@keyframes sliceNext {
+    0% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    40% {
+        transform: translateX(0);
+        opacity: .6;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+    }
+}
+@keyframes slicePrevius {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    40% {
+        transform: translateX(0);
+        opacity: .6;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        
     }
 }
 :root{
@@ -68,17 +106,14 @@ main {
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 2px 12px 4px rgba(200, 200, 200, .5);
     border-radius: 2px;
+    overflow-y: hidden;
 }
 main > section:first-child {
     display: flex;
     flex-wrap: wrap;
 }
 main > section {
-    min-height: 40rem;
-}
-main > section > article > header > h1,
-main > section > article > header > p {
-    animation: toUpFade 2s ease 1s;
+    margin-bottom: 2rem;
 }
 section > article {
     flex-grow: 1;
@@ -91,7 +126,8 @@ section > h2 {
 .card-feature {
     display: flex;
     flex-flow: column;
-    align-items: center;
+    align-items:stretch;
+    height: min-content;
     color: var(--primaryColor);
     font-weight: bold;
 }
@@ -99,11 +135,10 @@ section > h2 {
     display: flex;
     align-items: center;
     background-color: var(--secondaryColor);
-    width: 70%;
+    width: 60%;
     padding: .8rem 2rem .8rem 2rem;
     margin: .5rem 0 .5rem 0;
     border-radius: 4px;
-    cursor: pointer;
     position: relative;
 }
 .card-feature > div > .feature-info {
@@ -123,15 +158,6 @@ section > h2 {
     opacity: 1 !important;
     transform: translateY(100%) !important;
     z-index: 1;
-}
-.card-feature > div:nth-child(1) {
-    animation: toLeftFade 3s ease 1s;
-}
-.card-feature > div:nth-child(2) {
-    animation: toLeftFadeDelay1 3s ease 1s;
-}
-.card-feature > div:nth-child(3) {
-    animation: toLeftFadeDelay2 3s ease 1s;
 }
 .card-wrapper {
     display: flex;
@@ -189,7 +215,6 @@ footer {
     align-items: center;
     justify-content: center;
     min-height: 15rem;
-    animation: toUpFadeIcon 2s ease;
 }
 footer > div {
     display: flex;
@@ -211,6 +236,65 @@ footer > div > i:nth-child(1):hover {
 }
 footer > div > i:nth-child(2):hover {
     color: rgb(64, 206, 64);
+}
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    color: black;
+}
+.carousel > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 60%;
+    max-height: 15rem;
+    min-height: min-content;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 2rem;
+    box-shadow: 0 5px 8px 2px rgba(50, 50, 50, .3);
+}
+.carousel > i {
+    font-size: 3rem;
+    width: 10%;
+    align-self: center;
+    color: rgba(70, 70, 70, .5);
+    text-align: center;
+    cursor: pointer;
+    transition: color .5s ease;
+    z-index: 1;
+}
+.carousel > article > img {
+    max-height: 100%;
+    height: auto;
+}
+.carousel > article > img:hover + .carousel-info,
+.carousel > article > .carousel-info:hover {
+    top: 50% !important;
+    background-color: rgba(255, 255, 255, .8);
+}
+.carousel-info {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    padding: .5rem 1rem .5rem 1rem;
+    transition: all .5s ease;
+}
+.carousel-info > h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 
+        Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: rgb(80, 80, 80);
+}
+.carousel > article:not(.carousel-active) {
+    opacity: 0;
+    display: none;
+}
+.carousel-active {
 }
 #toUpButton {
     position: fixed;
@@ -235,6 +319,7 @@ footer > div > i:nth-child(2):hover {
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     left: 0;
@@ -243,6 +328,11 @@ footer > div > i:nth-child(2):hover {
     background-image: repeating-linear-gradient(rgba(100, 100, 100, .1), rgba(200, 200, 200, .1) 1%);
     color: var(--primaryColor);
     transition: all 1.5s ease;
+    z-index: 2;
+}
+#loadingScreen > i {
+    font-size: 4rem;
+    color: rgb(70, 70, 70);
 }
 #loadingScreen > img {
     width: 200px;
@@ -261,7 +351,7 @@ footer > div > i:nth-child(2):hover {
         opacity .5s ease;
 }
 #indexButton:hover {
-    opacity: 1;
+    opacity: 1 !important;
     border-radius: 0;
 }
 #navMenu {
@@ -277,6 +367,7 @@ footer > div > i:nth-child(2):hover {
     background-color: gray;
     background-image: repeating-linear-gradient(rgba(100, 100, 100, .1), rgba(200, 200, 200, .1) 1%);
     transition: all 1s ease;
+    z-index: 2;
 }
 #navMenu > i {
     position: absolute;
@@ -301,8 +392,41 @@ footer > div > i:nth-child(2):hover {
 .to-up-fade-animation {
     animation: toUpFade 1.5s ease;
 }
+.to-up-animation {
+    animation: toUpFade 1.5s ease;
+}
+.slice-next-animation {
+    animation: sliceNext 1.5s ease-in;
+}
+.slice-previus-animation {
+    animation: slicePrevius 1.5s ease-in;
+}
+.to-left-fade-animation-1 {
+    animation: toLeftFade 1.5s ease;
+}
+.to-left-fade-animation-2 {
+    animation: toLeftFadeDelay1 1.5s ease;
+}
+.to-left-fade-animation-3 {
+    animation: toLeftFadeDelay2 1.5s ease;
+}
+.waiting-for-animation {
+}
 .hidden {
     opacity: 0 !important;
+}
+.small-logo {
+    max-width: 48px;
+}
+.medium-logo {
+    max-width: 72px;
+}
+h1 {
+    display: flex;
+    align-items: center;
+}
+h1 > .small-logo {
+    padding-left: .5rem;
 }
 @media(min-width: 769px) {
     .card-feature > div:nth-child(2) {
@@ -310,6 +434,9 @@ footer > div > i:nth-child(2):hover {
     }
     .card-feature > div:nth-child(3) {
         margin-left: 20% !important;
+    }
+    .carousel > i:hover {
+        color: rgba(70, 70, 70, 1);
     }
 }
 @media(min-width: 426px) and (max-width: 768px) {
@@ -320,9 +447,6 @@ footer > div > i:nth-child(2):hover {
 @media(max-width: 768px) {
     body {
         padding: 5% 0 0 0 !important;
-    }
-    main > section {
-        min-height: 45rem;
     }
     section > article {
         max-width: 100%;
@@ -349,6 +473,26 @@ footer > div > i:nth-child(2):hover {
 
 }
 @media(max-width: 425px) {
+    .carousel {
+        flex-wrap: wrap;;
+    }
+    .carousel > article {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .carousel > i {
+        order: 2;
+        width: 30%;
+    }
+    .carousel > i:active {
+        color: rgba(70, 70, 70, 1);
+    }
+    .carousel-info > h3 {
+        font-size: 1.6rem;
+    }
+    .carousel-info > p {
+        font-size: 1rem;
+    }
     #toUpButton {
         bottom: 10%;
         right: 4%;
