@@ -98,6 +98,7 @@ html, body {
 body {
     padding: 4% 7% 4% 7%;
     background-color: rgba(245, 245, 245, 1);
+    overflow-x: hidden;
 }
 main {
     display: flex;
@@ -106,7 +107,7 @@ main {
     background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 2px 12px 4px rgba(200, 200, 200, .5);
     border-radius: 2px;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 main > section:first-child {
     display: flex;

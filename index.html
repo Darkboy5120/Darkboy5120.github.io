@@ -381,12 +381,14 @@
                             document.querySelector(`#${attValue}`).scrollIntoView();
                         }
                     });
-                    window.addEventListener("keyup", e => {
+                    window.addEventListener("keydown", e => {
                         if (e.which == 27) {
+                            let body = document.querySelector("body");
                             if (!this.state) this.show();
                             else this.hide();
                         } else if (this.state) {
                             if (e.which == 38 || e.which == 40) {
+                                window.event.preventDefault();
                                 this.lastCurrentItem = this.currentItem;
                                 if (this.currentItem == null) {
                                     this.currentItem = 0;
@@ -401,7 +403,7 @@
                                 this.reset();
                             }
                         }
-                    });
+                    }, true);
 
                     toUpButton.addEventListener("click", e => {
                         scrollTotop();
