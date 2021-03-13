@@ -155,7 +155,7 @@
             <nav id="navMenu">
                 <i id="closeNavMenuButton" class="fas fa-times"></i>
                 <h2 data-navMenuTab="sectionHome">Bienvenido</h2>
-                <h2 data-navMenuTab="sectionProyects" style="display:none;">Proyectos</h2>
+                <!--<h2 data-navMenuTab="sectionProyects">Proyectos</h2>-->
                 <h2 data-navMenuTab="sectionWhy">¿Por que nosotros?</h2>
                 <h2 data-navMenuTab="sectionTeam">Equipo de trabajo</h2>
                 <h2 data-navMenuTab="sectionContact">Contacto</h2>
@@ -199,7 +199,14 @@
                     }, 1000);
                 };
 
-                //algunas animaciones
+                //Escroleamos hasta arriba.
+                const scrollToTop = function () {
+                    window.scroll({
+                        top: 0
+                    });
+                }
+
+                //Algunas animaciones.
                 document.querySelectorAll(".card-generic, section > h2, footer").forEach(e => {
                     e.classList.add("waiting-for-animation");
                 });
@@ -260,28 +267,6 @@
 
                 init();
                 checkPositionAndEvents();
-
-                let closeNavMenuButton = document.querySelector("#closeNavMenuButton");
-                let navMenuState = false;
-
-                //Onclick events para los botones del menu de navegacion.
-                window.onclick = function (e) {
-                    if (e.target.hasAttribute("data-navMenuTab")) {
-                        const attValue = e.target.getAttribute("data-navMenuTab");
-                        navMenuState = false;
-                        document.querySelector("#navMenu").style.top = "100vh";
-                        /* Aqui en lugar de escrolear a la primera seccion lo hacemos hasta 
-                         * lo mas arriba posible para que no queden espacios arriba.
-                         */
-                        if (attValue == "sectionHome") {
-                            window.scroll({
-                                top: 0
-                            });
-                            return;
-                        }
-                        document.querySelector(`#${attValue}`).scrollIntoView();
-                    }
-                }
 
                 function Carousel () {
                     this.images = document.querySelectorAll(".carousel > article");
@@ -345,42 +330,101 @@
                         this.previus();
                     }, this.autoSlideDelay);
                 }
-                const carousel = new Carousel();
+                function NavMenu () {
+                    this.showButton = document.querySelector("#closeNavMenuButton");
+                    this.state = false;
+                    this.items = document.querySelectorAll("#navMenu > h2");
+                    this.currentItem = null;
+                    this.lastCurrentItem = null;
+                    this.selectItemClass = "nav-menu-keyboard-focus";
 
-                toUpButton.addEventListener("click", e => {
-                    //Escroleamos hasta arriba.
-                    window.scroll({
-                        top: 0
-                    });
-                });
-
-                const showNavMenu = function () {
-                    navMenuState = true;
-                    document.querySelector("#navMenu").style.top = "0";
-                }
-                const hideNavMenu = function () {
-                    navMenuState = false;
-                    document.querySelector("#navMenu").style.top = "100vh";
-                }
-
-                window.onkeyup = function (e) {
-                    if (e.which == 27) {
-                        if (!navMenuState) showNavMenu();
-                        else hideNavMenu();
-                    } else if (e.which == 87) {
-                        window.scroll({
-                            top: 0
-                        }); 
+                    this.show = function () {
+                        this.state = true;
+                        document.querySelector("#navMenu").style.top = "0";
                     }
+                    this.hide = function () {
+                        this.reset();
+                        this.state = false;
+                        document.querySelector("#navMenu").style.top = "100vh";
+                    }
+                    this.updateItems = function () {
+                        if (this.currentItem < 0) {
+                            this.currentItem = this.items.length-1;
+                        } else if (this.currentItem > this.items.length-1) {
+                            this.currentItem = 0;
+                        }
+                        this.items[this.currentItem].classList.add(this.selectItemClass);
+                        if (this.lastCurrentItem != null) {
+                            this.items[this.lastCurrentItem].classList.remove(this.selectItemClass);
+                        }
+                    }
+                    this.reset = function () {
+                        if (this.currentItem == null) return;
+                        this.items[this.currentItem].classList.remove(this.selectItemClass);
+                        this.currentItem = null;
+                        this.lastCurrentItem = null;
+                    }
+
+                    //Onclick events para los botones del menu de navegacion.
+                    window.addEventListener("click", e => {
+                        if (e.target.hasAttribute("data-navMenuTab")) {
+                            const attValue = e.target.getAttribute("data-navMenuTab");
+                            this.state = false;
+                            document.querySelector("#navMenu").style.top = "100vh";
+                            /* Aqui en lugar de escrolear a la primera seccion lo hacemos hasta 
+                            * lo mas arriba posible para que no queden espacios arriba.
+                            */
+                            if (attValue == "sectionHome") {
+                                scrollToTop();
+                                return;
+                            }
+                            document.querySelector(`#${attValue}`).scrollIntoView();
+                        }
+                    });
+                    window.addEventListener("keyup", e => {
+                        if (e.which == 27) {
+                            if (!this.state) this.show();
+                            else this.hide();
+                        } else if (this.state) {
+                            if (e.which == 38 || e.which == 40) {
+                                this.lastCurrentItem = this.currentItem;
+                                if (this.currentItem == null) {
+                                    this.currentItem = 0;
+                                } else if (e.which == 38) {
+                                    this.currentItem -= 1;
+                                } else if (e.which == 40) {
+                                    this.currentItem += 1;
+                                }
+                                this.updateItems();
+                            } else if (e.which == 13) {
+                                this.items[this.currentItem].click();
+                                this.reset();
+                            }
+                        }
+                    });
+
+                    toUpButton.addEventListener("click", e => {
+                        scrollTotop();
+                    });
+
+                    //Eventos globales de las teclas.
+                    window.onkeyup = function (e) {
+                        if (e.which == 87) {
+                            scrollToTop();
+                        }
+                    }
+
+                    //Eventos de click para el indice y el boton de cerrar menu.
+                    indexButton.addEventListener("click", e => {
+                        navMenu.show();
+                    });
+                    closeNavMenuButton.addEventListener("click", e => {
+                        navMenu.hide();
+                    });
                 }
 
-                //Eventos de click para el indice y el boton de cerrar menu.
-                indexButton.addEventListener("click", e => {
-                    showNavMenu();
-                });
-                closeNavMenuButton.addEventListener("click", e => {
-                    hideNavMenu();
-                });
+                const carousel = new Carousel();
+                const navMenu = new NavMenu();
 
                 document.querySelector("#icon_facebook").addEventListener("click", e => {
                     window.open("https://www.facebook.com/TlachialianiCode-105811988227146");

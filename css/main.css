@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&family=Audiowide&display=swap');
 
 @keyframes toUpFade {
     from {
@@ -385,9 +385,14 @@ footer > div > i:nth-child(2):hover {
     font-weight: bold;
     margin-bottom: 2rem;
     cursor: pointer;
+    font-family: 'Audiowide', cursive !important;
+    text-align: center;
 }
 #navMenu > h2:hover {
     color: white;
+}
+.nav-menu-keyboard-focus {
+    color: white !important;
 }
 .to-up-fade-animation {
     animation: toUpFade 1.5s ease;
@@ -501,7 +506,10 @@ h1 > .small-logo {
         top: 4%;
         right: 4%;
     }
+    #navMenu > i {
+        font-size: 3rem;
+    }
     #navMenu > h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;        
     }
 }
