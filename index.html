@@ -196,6 +196,13 @@
                              */
                             document.querySelector("#loadingScreen").style.display= "none";
                         }, 1500);
+
+                        //Petición para llevar un registro de las visitas
+                        fetch("https://chilaquilesenterprise.com/foo/foo.php", {
+                            mode: 'no-cors'
+                        })
+                        .then(res => res.json())
+                        .catch(err => 1+2);
                     }, 1000);
                 };
 
