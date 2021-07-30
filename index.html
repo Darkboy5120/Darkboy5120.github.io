@@ -1,447 +1,338 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>TlachialianiCode</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="img/logo-rb.png" />
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="./css/main.css">
-        <!-- Font Awesome -->
-        <script src="https://kit.fontawesome.com/0d40d8f017.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <main>
-            <section id="sectionHome">
-                <article>
-                    <header>
-                        <h1>TlachiCode<img class="small-logo" src="img/logo-rb.png" alt="foo"></h1>
-                        <p>Bienvenido a TlachiCode, el equipo agradece tu voto de confianza para ayudarte 
-                            a desarrollar tu idea, nuestra prioridad será entregarte un producto 
-                            profesional que se ajuste a tu negocio y a tu forma de trabajar</p>
-                    </header>
-                </article>
-                <article class="card-feature">
-                    <div>
-                        &nbsp;<i class="float-md-left fas fa-cloud"></i>
-                        <span>&nbsp; Aplicación Web</span>
-                        <div class="feature-info">
-                            <span>Aplicaciones para celular y computadora que usan el navegador.
-                            </span>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="float-md-left fas fa-mobile-alt"></i>
-                        <span>&nbsp; Aplicación Movil</span>
-                        <div class="feature-info">
-                            <span>Aplicaciones para el celular que no usan el navegador.</span>
-                        </div>
-                    </div>
-                    <div>
-                        <i class="float-md-left fas fa-desktop"></i>
-                        <span>&nbsp; Aplicación de Escritorio</span>
-                        <div class="feature-info">
-                            <span>Aplicaciones para la computadora que no usan el navegador.</span>
-                        </div>
-                    </div>
-                </article>
-            </section>
-            <section id="sectionProyects" style="display:none;">
-                <h2>Proyectos</h2>
-                <div class="carousel">
-                    <i id="carouselPrevius" class="fas fa-angle-double-left"></i>
-                    <article class="carousel-active">
-                        <img src="" alt="foo">
-                        <div class="carousel-info">
-                            <h3>foo text</h3>
-                            <p>foo text.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="" alt="foo">
-                        <div class="carousel-info">
-                            <h3>foo text</h3>
-                            <p>foo text.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <img src="" alt="foo">
-                        <div class="carousel-info">
-                            <h3>foo text</h3>
-                            <p>foo text.</p>
-                        </div>
-                    </article>
-                    <i id="carouselNext" class="fas fa-angle-double-right"></i>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0d40d8f017.js" crossorigin="anonymous"></script>
+    <!-- Scroll Reveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <title>Portafolio</title>
+</head>
+<body class="dark-theme">
+    
+    <nav>
+        <header>
+            <h2>Portafolio</h2>
+        </header>
+        <section>
+            <a tabindex="5" id="whoami-tab" href="#whoami"><i class="fas fa-question"></i>¿Quien soy?</a>
+            <a tabindex="5" id="proyects-tab" href="#proyects"><i class="fas fa-tasks"></i>Proyectos</a>
+            <a tabindex="5" id="skills-tab" href="#skills"><i class="fas fa-star"></i></i>Habilidades</a>
+            <a tabindex="5" id="contact-tab" href="#contact"><i class="fas fa-phone"></i>Contacto</a>
+        </section>
+        <footer>
+            Copyright © 2021 HGMG
+        </footer>
+    </nav>
+    <header id="whoami">
+        <h1>Hola, mi nombre es Hilarión :)</h1>
+        <p>Soy un apasionado estudiante de <b>ingenieria en software</b>, me gusta mucho resolver problemas 
+            y ofrecer soluciones a la gente, soy resiliente, honesto y muy trabajador.
+        </p>
+        <img src="./img/img0.png" alt="">
+    </header>
+    <section class="alt-section" id="proyects">
+        <h2>Proyectos</h2>
+        <div class="carousel">
+            <i id="carouselPrevius" class="fas fa-angle-double-left"></i>
+            <article class="carousel-active">
+                <img src="./img/rentacar_pro.png" alt="Rentacar" data-url="https://chilaquilesenterprise.com/rentacar/?p=login">
+                <div class="carousel-info">
+                    <h3>Rentacar (proyecto escolar)</h3>
+                    <p>Plataforma de renta de autos.</p>
                 </div>
-            </section>
-            <section id="sectionWhy">
-                <h2>¿Por que nosostros?</h2>
-                <div class="card-wrapper">
-                    <article class="card-generic">
-                        <div class="card-title">
-                            <i class="far fa-star fa-2x"></i>
-                            <h3>&nbsp;Rendimiento</h3>
-                        </div>
-                        <p>Tu página estará lista en no más de dos semanas, 
-                            por lo que no tendrás que esperar tiempos absurdos de espera para ver 
-                            resultados tangibles.</p>
-                    </article>
-                    <article class="card-generic">
-                        <div class="card-title">
-                            <i class="far fa-star fa-2x"></i>
-                            <h3>&nbsp;Profesional</h3>
-                        </div>
-                        <p>Nos tomamos en serio la ética profesional para 
-                            que ningún cliente sienta desconfianza alguna y no se produzcan malos tratos 
-                            en la comunicación con el equipo, ten por seguro que nuestras decisiones se rigen 
-                            por un estricto codigo etico.</p>
-                    </article>
-                    <article class="card-generic">
-                        <div class="card-title">
-                            <i class="far fa-star fa-2x"></i>
-                            <h3>&nbsp;Comodidad</h3>
-                        </div>
-                        <p>Nosotros te ayudaremos a completar tus ideas 
-                            y te guiaremos por todo el camino hasta la meta, al final tu visión será completamente 
-                            funcional para día a día.</p>
-                    </article>
+            </article>
+            <article>
+                <img src="./img/rentacar_pro.png" alt="Rentacar" data-url="https://chilaquilesenterprise.com/rentacar/?p=login">
+                <div class="carousel-info">
+                    <h3>Rentacar (proyecto escolar)</h3>
+                    <p>Plataforma de renta de autos.</p>
                 </div>
-            </section>
-            <section id="sectionTeam">
-                <h2>Equipo de trabajo</h2>
-                <div class="card-wrapper">
-                    <article class="card-generic">
-                        <div class="card-title">
-                            <i class="fas fa-user-circle fa-2x"></i>
-                            <h3>&nbsp;Josue</h3>
-                        </div>
-                        <p>"Nos comprometemos para ayudarte a que tengas un software de calidad, 
-                            manejar un diseño intuitivo y gran experiencia de usuario, garantizamos 
-                            una gran satisfacción."</p>
-                    </article>
-                    <article class="card-generic">
-                        <div class="card-title">
-                            <i class="fas fa-user-circle fa-2x"></i>
-                            <h3>&nbsp;Hilarión</h3>
-                        </div>
-                        <p>"Bienvenido a la familia, nos encargaremos de guiarte a tus metas por el 
-                            buen camino, estaremos siempre en comunicacion y al tanto de tus necesidades."</p>
-                    </article>
-                    <article class="card-generic">
-                        <div class="card-title">
-                            <i class="fas fa-user-circle fa-2x"></i>
-                            <h3>&nbsp;Roberto</h3>
-                        </div>
-                        <p>"De entrada, en nombre del equipo quiero agradecerte tu voto de confianza 
-                            para ayudarte a desarrollar tu idea, nuestra prioridad será entregarte un 
-                            producto profesional que se ajuste a tu negocio y a tu forma de trabajar."</p>
-                    </article>
+            </article>
+            <article>
+                <img src="./img/rentacar_pro.png" alt="Rentacar" data-url="https://chilaquilesenterprise.com/rentacar/?p=login">
+                <div class="carousel-info">
+                    <h3>Rentacar (proyecto escolar)</h3>
+                    <p>Plataforma de renta de autos.</p>
                 </div>
-            </section>
-            <footer id="sectionContact">
-                <div>
-                    <i id="icon_facebook" class="fab fa-facebook-f px-2"></i>
-                    <i id="icon_whatsapp" class="fab fa-whatsapp px-2"></i>
-                </div>
-                <h3>Contactanos</h3>
-                <img class="medium-logo" src="img/logo-rb.png" alt="foo">
-            </footer>
-            
-            <div class="hidden" id="toUpButton"><i class="fas fa-chevron-up fa-2x"></i></div>
-            <div id="indexButton">
-                <i class="fas fa-th-list fa-2x"></i>
+            </article>
+            <i id="carouselNext" class="fas fa-angle-double-right"></i>
+        </div>
+    </section>
+    <section id="skills">
+        <h2>Habilidades</h2>
+        <div class="icon-container">
+            <div class="icon-item">
+                <p>Diseño optimizado para seo organico en html5</p>
+                <img src="./img/html5_icon.png" alt="" srcset="">
             </div>
-            <nav id="navMenu">
-                <i id="closeNavMenuButton" class="fas fa-times"></i>
-                <h2 data-navMenuTab="sectionHome">Bienvenido</h2>
-                <!--<h2 data-navMenuTab="sectionProyects">Proyectos</h2>-->
-                <h2 data-navMenuTab="sectionWhy">¿Por que nosotros?</h2>
-                <h2 data-navMenuTab="sectionTeam">Equipo de trabajo</h2>
-                <h2 data-navMenuTab="sectionContact">Contacto</h2>
-            </nav>
-            <div id="loadingScreen">
-                <img src="img/logo-rb.png" alt="logo">
-                <i class="fas fa-cog fa-spin"></i>
+            <div class="icon-item">
+                <p>Diseño responsive y bonito con css3</p>
+                <img src="./img/css3_icon.png" alt="" srcset="">
             </div>
-        </main>
-        <script>
-            (function() {
-                /* Mientras la pagina no se este cargando mostramos una pantalla de carga.
-                 * El delay es para que la pantalla de carga no dure tan poco tiempo.
-                 */
-                window.onload = function () {
-                    window.setTimeout(() => {
-                        //Movemos a la izquierda la pantalla de carga.
-                        document.querySelector("#loadingScreen").style.left = "-100vw";
+            <div class="icon-item">
+                <p>Interacciones intuitivas y animaciones suaves en js</p>
+                <img src="./img/js_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Desarollo en android nativo con java</p>
+                <img src="./img/java_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Competente en el mundo nativo de los mobiles</p>
+                <img src="./img/android_icon.jpg" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Diseño de interfaces y prototipos en adobexd</p>
+                <img src="./img/adobexd_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Diseño de modelos y animaciones 3d en blender</p>
+                <img src="./img/blender_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Gestion de bases relacionales con mysql</p>
+                <img src="./img/mysql_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Seguridad, modelos y websevices con php</p>
+                <img src="./img/php_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Metodos agiles con scrum</p>
+                <img src="./img/scrum_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Interfaces usables, accesibles e intuitivas</p>
+                <img src="./img/uiux_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Control de versiones en github</p>
+                <img src="./img/github_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Competente en administracion de sistemas linux</p>
+                <img src="./img/linux_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Compente en desarrollo de videojuegos con unity</p>
+                <img src="./img/unity_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Desarrollo de aplicaciones en realidad aumentada con vuforia</p>
+                <img src="./img/vuforia_icon.jpg" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Experto en ofrecer soluciones con python</p>
+                <img src="./img/python_icon.png" alt="" srcset="">
+            </div>
+            <div class="icon-item">
+                <p>Desarrollo de videojuegos con pygame</p>
+                <img src="./img/pygame_icon.png" alt="" srcset="">
+            </div>
+        </div>
+    </section>
+    <section class="alt-section" id="contact">
+        <h2>Contacto</h2>
+        <img src="./img/img3.png" alt="">
+        <div class="icon-container-centered">
+            <a tabindex="0" href="https://github.com/Darkboy5120" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a tabindex="0" href="https://api.whatsapp.com/send?phone=5213141637234" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a tabindex="0" href="https://github.com/Darkboy5120" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </section>
+    <div class="floating-actions">
+        <button tabindex="6" id="fa-theme" type="button">
+            <i class="fas fa-adjust"></i>
+        </button>
+        <button id="show_cv" tabindex="6" id="fa-theme" type="button">
+            <i class="far fa-address-card"></i>
+        </button>
+    </div>
 
-                        //algunas animaciones
-                        document.querySelector("#sectionHome > article > header > h1")
-                            .classList.add("to-up-fade-animation");
-                        document.querySelector("#sectionHome > article > header > p")
-                            .classList.add("to-up-fade-animation");
-                        document.querySelector(".card-feature > div:nth-child(1)")
-                            .classList.add("to-left-fade-animation-1");
-                        document.querySelector(".card-feature > div:nth-child(2)")
-                            .classList.add("to-left-fade-animation-2");
-                        document.querySelector(".card-feature > div:nth-child(3)")
-                            .classList.add("to-left-fade-animation-3");
-
-                        window.setTimeout(() => {
-                            /* Tenemos que cambiar el display de la pantalla de carga para que los
-                             * eventos del mouse como hover, active hagan efecto pues realmente la 
-                             * pantalla de carga sigue encima de todo, el delay de 1500 es porque la transicion 
-                             * de la pantalla de carga tarda 500 en quitarce y los otros 1000 es porque es el tiempo 
-                             * minimo que dura la pantalla en mostrarse.
-                             */
-                            document.querySelector("#loadingScreen").style.display= "none";
-                        }, 1500);
-
-                        //Petición para llevar un registro de las visitas
-                        fetch("https://chilaquilesenterprise.com/foo/foo.php", {
-                            mode: 'no-cors'
-                        })
-                        .then(res => res.json())
-                        .catch(err => 1+2);
-                    }, 1000);
-                };
-
-                //Escroleamos hasta arriba.
-                const scrollToTop = function () {
-                    window.scroll({
-                        top: 0
-                    });
-                }
-
-                //Algunas animaciones.
-                document.querySelectorAll(".card-generic, section > h2, footer").forEach(e => {
-                    e.classList.add("waiting-for-animation");
+    <script>
+        function Carousel () {
+            this.images = document.querySelectorAll(".carousel > article");
+            this.currentIndex = null;
+            this.autoSlide = null;
+            this.autoSlideDelay = 7000;
+            //Agregamos eventos de click para redirigir a otra pagina
+            for (let i = 0; i < this.images.length; i++) {
+                let current_image = this.images[i].querySelector("img");
+                current_image.addEventListener("click", () => {
+                    let new_page_path = current_image.getAttribute("data-url");
+                    window.open(new_page_path);
                 });
-                
-                let elements;
-                let windowHeight;
-                let hideIndexButton;
-                let hideToUpButton;
-                let toUpButton = document.querySelector("#toUpButton");
-                let indexButton = document.querySelector("#indexButton");
-
-                function init() {
-                    hiddenElements = document.querySelectorAll(".waiting-for-animation");
-                    windowHeight = window.innerHeight;
+            }
+            //Obtenemos el indice de la imagen activa, si es que existe.
+            for (let i = 0; i < this.images.length; i++) {
+                if (this.images[i].classList.contains("carousel-active")) {
+                    currentIndex = i;
                 }
-
-                function checkPositionAndEvents() {
-                    /* Mientras se esta escroleando el indice se mostrara pero si 
-                     * no se escrolea por 2 segundos se ocultara.
-                     */
-                    clearInterval(hideIndexButton);
-                    hideIndexButton = window.setTimeout(() => {
-                        indexButton.classList.add("hidden");
-                    }, 2000);
-                    indexButton.classList.remove("hidden");
-
-                    /* Mostramos el boton para subir hasta arriba si se ha bajado 
-                     * lo suficiente.
-                     */
-                    if (window.scrollY > 300) {
-                        clearInterval(hideToUpButton);
-                        hideToUpButton = window.setTimeout(() => {
-                            toUpButton.classList.add("hidden");
-                        }, 2000);
-                        toUpButton.classList.remove("hidden");
-                    } else {
-                        toUpButton.classList.add("hidden");
-                    }
-
-                    /* Recorremos todos los elementos que tienen la clase .waiting-for-animation 
-                     * y checamos cuando estamos a punto de mostrarlos en la pantalla 
-                     * tomando la posicion actual del scroll y la posicion de los elementos 
-                     * en el scroll, entonces les quitamos .waiting-for-animation para que su animacion 
-                     * se muestre.
-                     */
-                    for (let i = 0; i < hiddenElements.length; i++) {
-                        let element = hiddenElements[i];
-                        let positionFromTop = hiddenElements[i].getBoundingClientRect().top;
-                        if (positionFromTop - windowHeight <= 0) {
-                            element.classList.add("to-up-fade-animation");
-                            element.classList.remove("waiting-for-animation");
-                        }
-                    }
+            }
+            //Si no se señalo una imagen activa tomamos la primera.
+            if (this.currentIndex == null) {
+                this.currentIndex = 0;
+                this.images[0].classList.add("carousel-active");
+            }
+            this.clearAnimations = function (image) {
+                image.classList.remove("slice-previus-animation");
+                image.classList.remove("slice-next-animation");
+            }
+            this.update = function () {
+                //Se corrige el rango cuando se sale del limite.
+                if (this.currentIndex < 0) {
+                    this.currentIndex = this.images.length-1;
+                } else if (this.currentIndex > this.images.length-1) {
+                    this.currentIndex = 0;
                 }
+                //se actualiza la clase de la nueva y antigua imagen activa.
+                let oldImage = document.querySelector(".carousel-active");
+                let newImage = this.images[this.currentIndex];
+                this.clearAnimations(newImage);
+                oldImage.classList.remove("carousel-active");
+                newImage.classList.add("carousel-active");
 
-                window.addEventListener('scroll', checkPositionAndEvents);
-                window.addEventListener('resize', init);
+                //Reiniciamos el autoSlide cuando se interactua con el carousel.
+                clearInterval(this.autoSlide);
+                this.autoSlide = window.setInterval(() => {
+                    this.next();
+                }, this.autoSlideDelay);
+            }
+            this.previus = function () {
+                this.currentIndex -= 1;
+                this.update();
+                this.images[this.currentIndex].classList.add("slice-previus-animation");
+            }
+            this.next = function () {
+                this.currentIndex += 1;
+                this.update();
+                this.images[this.currentIndex].classList.add("slice-next-animation");
+            }
+            document.querySelector("#carouselPrevius").addEventListener("click", e => {
+                this.previus();
+            });
+            document.querySelector("#carouselNext").addEventListener("click", e => {
+                this.next();
+            });
 
-                init();
-                checkPositionAndEvents();
+            //Iniciamos el autoSlide para que avance el carousel.
+            this.autoSlide = window.setInterval(() => {
+                this.previus();
+            }, this.autoSlideDelay);
+        }
 
-                function Carousel () {
-                    this.images = document.querySelectorAll(".carousel > article");
-                    this.currentIndex = null;
-                    this.autoSlide = null;
-                    this.autoSlideDelay = 7000;
-                    //Obtenemos el indice de la imagen activa, si es que existe.
-                    for (let i = 0; i < this.images.length; i++) {
-                        if (this.images[i].classList.contains("carousel-active")) {
-                            currentIndex = i;
-                        }
-                    }
-                    //Si no se señalo una imagen activa tomamos la primera.
-                    if (this.currentIndex == null) {
-                        this.currentIndex = 0;
-                        this.images[0].classList.add("carousel-active");
-                    }
-                    this.clearAnimations = function (image) {
-                        image.classList.remove("slice-previus-animation");
-                        image.classList.remove("slice-next-animation");
-                    }
-                    this.update = function () {
-                        //Se corrige el rango cuando se sale del limite.
-                        if (this.currentIndex < 0) {
-                            this.currentIndex = this.images.length-1;
-                        } else if (this.currentIndex > this.images.length-1) {
-                            this.currentIndex = 0;
-                        }
-                        //se actualiza la clase de la nueva y antigua imagen activa.
-                        let oldImage = document.querySelector(".carousel-active");
-                        let newImage = this.images[this.currentIndex];
-                        this.clearAnimations(newImage);
-                        oldImage.classList.remove("carousel-active");
-                        newImage.classList.add("carousel-active");
+        let current_theme = "dark";
 
-                        //Reiniciamos el autoSlide cuando se interactua con el carousel.
-                        clearInterval(this.autoSlide);
-                        this.autoSlide = window.setInterval(() => {
-                            this.next();
-                        }, this.autoSlideDelay);
-                    }
-                    this.previus = function () {
-                        this.currentIndex -= 1;
-                        this.update();
-                        this.images[this.currentIndex].classList.add("slice-previus-animation");
-                    }
-                    this.next = function () {
-                        this.currentIndex += 1;
-                        this.update();
-                        this.images[this.currentIndex].classList.add("slice-next-animation");
-                    }
-                    document.querySelector("#carouselPrevius").addEventListener("click", e => {
-                        this.previus();
-                    });
-                    document.querySelector("#carouselNext").addEventListener("click", e => {
-                        this.next();
-                    });
+        document.querySelector("#fa-theme").addEventListener("click", e => {
+            let el = e.target;
+            if (el.tagName == "BUTTON") {
+                el = el.querySelector("i");
+            }
+            if (current_theme == "dark") {
+                current_theme = "light";
+                el.classList.add("rotate-180");
+                document.body.classList.add("light-theme");
+                document.body.classList.remove("dark-theme");
+            } else {
+                current_theme = "dark";
+                el.classList.remove("rotate-180");
+                document.body.classList.add("dark-theme");
+                document.body.classList.remove("light-theme");
+            }
+        });
 
-                    //Iniciamos el autoSlide para que avance el carousel.
-                    this.autoSlide = window.setInterval(() => {
-                        this.previus();
-                    }, this.autoSlideDelay);
+        document.querySelectorAll(".icon-container-centered > a > i").forEach(e => {
+            e.addEventListener("mouseenter", (ev) => {
+                let remove_class = window.setTimeout(() => {
+                    if (e.classList.contains("contact-icon-animation")) {
+                        e.classList.remove("contact-icon-animation");
+                    }
+                }, 1400);
+                if (!e.classList.contains("contact-icon-animation")) {
+                    e.classList.add("contact-icon-animation");
+                } else {
+                    clearTimeout(remove_class);
                 }
-                function NavMenu () {
-                    this.showButton = document.querySelector("#closeNavMenuButton");
-                    this.state = false;
-                    this.items = document.querySelectorAll("#navMenu > h2");
-                    this.currentItem = null;
-                    this.lastCurrentItem = null;
-                    this.selectItemClass = "nav-menu-keyboard-focus";
+            });
+        });
+        let default_selected = document.querySelector("nav > section > a");
+        default_selected.classList.add("active");
+        document.querySelectorAll("nav > section > a").forEach(e => {
+            e.addEventListener("click", () => {
+                default_selected.classList.remove("active");
+                e.classList.add("active");
+                default_selected = e;
+            });
+        });
 
-                    this.show = function () {
-                        this.state = true;
-                        document.querySelector("#navMenu").style.top = "0";
-                    }
-                    this.hide = function () {
-                        this.reset();
-                        this.state = false;
-                        document.querySelector("#navMenu").style.top = "100vh";
-                    }
-                    this.updateItems = function () {
-                        if (this.currentItem < 0) {
-                            this.currentItem = this.items.length-1;
-                        } else if (this.currentItem > this.items.length-1) {
-                            this.currentItem = 0;
-                        }
-                        this.items[this.currentItem].classList.add(this.selectItemClass);
-                        if (this.lastCurrentItem != null) {
-                            this.items[this.lastCurrentItem].classList.remove(this.selectItemClass);
-                        }
-                    }
-                    this.reset = function () {
-                        if (this.currentItem == null) return;
-                        this.items[this.currentItem].classList.remove(this.selectItemClass);
-                        this.currentItem = null;
-                        this.lastCurrentItem = null;
-                    }
-
-                    //Onclick events para los botones del menu de navegacion.
-                    window.addEventListener("click", e => {
-                        if (e.target.hasAttribute("data-navMenuTab")) {
-                            const attValue = e.target.getAttribute("data-navMenuTab");
-                            this.state = false;
-                            document.querySelector("#navMenu").style.top = "100vh";
-                            /* Aqui en lugar de escrolear a la primera seccion lo hacemos hasta 
-                            * lo mas arriba posible para que no queden espacios arriba.
-                            */
-                            if (attValue == "sectionHome") {
-                                scrollToTop();
-                                return;
-                            }
-                            document.querySelector(`#${attValue}`).scrollIntoView();
-                        }
-                    });
-                    window.addEventListener("keydown", e => {
-                        if (e.which == 27) {
-                            let body = document.querySelector("body");
-                            if (!this.state) this.show();
-                            else this.hide();
-                        } else if (this.state) {
-                            if (e.which == 38 || e.which == 40) {
-                                window.event.preventDefault();
-                                this.lastCurrentItem = this.currentItem;
-                                if (this.currentItem == null) {
-                                    this.currentItem = 0;
-                                } else if (e.which == 38) {
-                                    this.currentItem -= 1;
-                                } else if (e.which == 40) {
-                                    this.currentItem += 1;
-                                }
-                                this.updateItems();
-                            } else if (e.which == 13) {
-                                this.items[this.currentItem].click();
-                                this.reset();
-                            }
-                        }
-                    }, true);
-
-                    toUpButton.addEventListener("click", e => {
-                        scrollTotop();
-                    });
-
-                    //Eventos globales de las teclas.
-                    window.onkeyup = function (e) {
-                        if (e.which == 87) {
-                            scrollToTop();
-                        }
-                    }
-
-                    //Eventos de click para el indice y el boton de cerrar menu.
-                    indexButton.addEventListener("click", e => {
-                        navMenu.show();
-                    });
-                    closeNavMenuButton.addEventListener("click", e => {
-                        navMenu.hide();
-                    });
+        let current_index = 0;
+        const change_section_debounce = 800;
+        let able_to_change_section = true;
+        let changing_section = null;
+        const sections_tab = ["#whoami-tab", "#proyects-tab", "#skills-tab", "#contact-tab"];
+        const sections = ["#whoami", "#proyects", "#skills", "#contact"];
+        const artifitial_scroll = (key) => {
+            if (able_to_change_section) {
+                if (key == 37) {
+                    current_index--;
+                    update_section();
+                } else if (key == 39) {
+                    current_index++;
+                    update_section();
+                } else if (key == 38) {
+                    current_index--;
+                    update_section();
+                } else if (key == 40) {
+                    current_index++;
+                    update_section();
                 }
+            }
+        }
 
-                const carousel = new Carousel();
-                const navMenu = new NavMenu();
+        document.querySelectorAll("nav > section > a").forEach((e, i) => {
+            e.addEventListener("click", () => {
+                current_index = i;
+            });
+        });
 
-                document.querySelector("#icon_facebook").addEventListener("click", e => {
-                    window.open("https://www.facebook.com/TlachialianiCode-105811988227146");
-                });
-                document.querySelector("#icon_whatsapp").addEventListener("click", e => {
-                    window.open("https://api.whatsapp.com/send?phone=5213141002572");
-                });
-            })();
-        </script>
-    </body>
+        const update_section = () => {
+            if (current_index < 0) {
+                current_index = sections_tab.length - 1;
+            } else if (current_index > (sections_tab.length - 1)) {
+                current_index = 0;
+            }
+
+            document.querySelector(sections_tab[current_index]).click();
+
+            able_to_change_section = false;
+            changing_section = window.setTimeout(e => {
+                able_to_change_section = true;
+            }, change_section_debounce);
+        }
+
+        window.addEventListener("keyup", e => {
+            artifitial_scroll(e.which);
+        });
+        window.addEventListener("keydown", e => {
+            if (e.which == 37 || e.which == 39 || e.which == 38 | e.which == 40) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+
+        document.querySelector("#show_cv").addEventListener("click", () => {
+            window.open("./pdf/cv.pdf");
+        });
+
+        const carousel = new Carousel();
+    </script>
+
+</body>
 </html>

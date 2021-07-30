@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Xanh+Mono:ital@1&family=Audiowide&display=swap');
+
+@keyframes toUpFade {
+    from {
+        transform: translateY(200px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes shake {
+    0% {
+    }
+    33% {
+        transform: rotate3d(0, 0, 1, 30deg);
+    }
+    66% {
+        transform: rotate3d(0, 0, 1, -30deg);
+    }
+}
+@keyframes toLeftFade {
+    from {
+        transform: translateX(300px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes toLeftFadeDelay1 {
+    from {
+        transform: translateX(340px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes toLeftFadeDelay2 {
+    from {
+        transform: translateX(380px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes sliceNext {
+    0% {
+        transform: translateX(200px);
+        opacity: 0;
+    }
+    40% {
+        transform: translateX(0);
+        opacity: .6;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+    }
+}
+@keyframes slicePrevius {
+    0% {
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    40% {
+        transform: translateX(0);
+        opacity: .6;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+    }
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        
+    }
+}
+:root{
+    --primaryColor: #511f50;
+    --secondaryColor: #a060912a;
+}
+html, body {
+    max-width: 100vw;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+body {
+    padding: 4% 7% 4% 7%;
+    background-color: rgba(245, 245, 245, 1);
+    overflow-x: hidden;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    padding: 10% 7% 10% 7%;
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 2px 12px 4px rgba(200, 200, 200, .5);
+    border-radius: 2px;
+    overflow: hidden;
+}
+main > section:first-child {
+    display: flex;
+    flex-wrap: wrap;
+}
+main > section {
+    margin-bottom: 2rem;
+}
+section > article {
+    flex-grow: 1;
+    max-width: 50%;
+}
+section > h2 {
+    text-align: center;
+    margin-top: 5rem;
+}
+.card-feature {
+    display: flex;
+    flex-flow: column;
+    align-items:stretch;
+    height: min-content;
+    color: var(--primaryColor);
+    font-weight: bold;
+}
+.card-feature > div {
+    display: flex;
+    align-items: center;
+    background-color: var(--secondaryColor);
+    width: 60%;
+    padding: .8rem 2rem .8rem 2rem;
+    margin: .5rem 0 .5rem 0;
+    border-radius: 4px;
+    position: relative;
+}
+.card-feature > div > .feature-info {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: .5rem;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    font-weight: normal;
+    transform: translateY(0%);
+    transition: all .3s ease;
+    border-radius: 0 0 5px 5px;
+}
+.card-feature > div:hover > .feature-info {
+    opacity: 1 !important;
+    transform: translateY(100%) !important;
+    z-index: 1;
+}
+.card-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card-generic {
+    display: flex;
+    flex-direction: column;
+    max-width: 15rem;
+    padding: 1.5rem;
+    margin: 2rem 0 0 0;
+    color: white;
+    background-color: var(--primaryColor);
+    border-radius: 5px;
+}
+.card-generic > p {
+    font-style: italic;
+}
+.card-generic > .card-title {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+.fa-star {
+    color: rgba(255, 215, 0, .8);
+}
+.fa-user-circle {
+    color: rgba(220, 220, 220, 1);
+}
+h1, h2, h3 {
+    font-family: 'Xanh Mono', monospace;
+    margin: 0;
+}
+h1 {
+    font-size: 2.6rem;
+    color: var(--primaryColor);
+}
+h2 {
+    font-size: 2rem;
+    color: var(--primaryColor);
+}
+h3 {
+    font-size: 1.4rem;
+}
+p, span {
+    font-size: 1rem;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",
+        "Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+}
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 15rem;
+}
+footer > div {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+footer > div > i {
+    padding: 0 1rem 0 1rem;
+    transition: color 1s ease;
+    cursor: pointer;
+}
+footer > div > i:hover {
+    animation: shake 1s ease;
+}
+footer > div > i:nth-child(1):hover {
+    color: rgb(38, 71, 255);
+}
+footer > div > i:nth-child(2):hover {
+    color: rgb(64, 206, 64);
+}
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    color: black;
+}
+.carousel > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 60%;
+    max-height: 15rem;
+    min-height: min-content;
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 2rem;
+    box-shadow: 0 5px 8px 2px rgba(50, 50, 50, .3);
+}
+.carousel > i {
+    font-size: 3rem;
+    width: 10%;
+    align-self: center;
+    color: rgba(70, 70, 70, .5);
+    text-align: center;
+    cursor: pointer;
+    transition: color .5s ease;
+    z-index: 1;
+}
+.carousel > article > img {
+    max-height: 100%;
+    height: auto;
+}
+.carousel > article > img:hover + .carousel-info,
+.carousel > article > .carousel-info:hover {
+    top: 50% !important;
+    background-color: rgba(255, 255, 255, .8);
+}
+.carousel-info {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 50%;
+    background-color: white;
+    padding: .5rem 1rem .5rem 1rem;
+    transition: all .5s ease;
+}
+.carousel-info > h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, 
+        Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        color: rgb(80, 80, 80);
+}
+.carousel > article:not(.carousel-active) {
+    opacity: 0;
+    display: none;
+}
+.carousel-active {
+}
+#toUpButton {
+    position: fixed;
+    bottom: 15%;
+    right: 8%;
+    cursor: pointer;
+    padding: .5rem;
+    background-color: var(--primaryColor);
+    opacity: .8;
+    color: white;
+    border-radius: 20px;
+    transition: border-radius .5s ease, 
+        opacity .5s ease;
+}
+#toUpButton:hover {
+    border-radius: 0;
+    opacity: 1;
+}
+#loadingScreen {
+    position: fixed;
+    font-size: 10rem;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    background-color: gray;
+    background-image: repeating-linear-gradient(rgba(100, 100, 100, .1), rgba(200, 200, 200, .1) 1%);
+    color: var(--primaryColor);
+    transition: all 1.5s ease;
+    z-index: 2;
+}
+#loadingScreen > i {
+    font-size: 4rem;
+    color: rgb(70, 70, 70);
+}
+#loadingScreen > img {
+    width: 200px;
+}
+#indexButton {
+    position: fixed;
+    top: 10%;
+    right: 8%;
+    color: white;
+    padding: .5rem;
+    background-color: var(--primaryColor);
+    cursor: pointer;
+    opacity: .8;
+    border-radius: 20px;
+    transition: border-radius .5s ease, 
+        opacity .5s ease;
+}
+#indexButton:hover {
+    opacity: 1 !important;
+    border-radius: 0;
+}
+#navMenu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: gray;
+    background-image: repeating-linear-gradient(rgba(100, 100, 100, .1), rgba(200, 200, 200, .1) 1%);
+    transition: all 1s ease;
+    z-index: 2;
+}
+#navMenu > i {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    color: var(--primaryColor);
+    font-size: 4rem;
+    cursor: pointer;
+}
+#navMenu > i:hover {
+    color: rgb(170, 50, 50);
+}
+#navMenu > h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    cursor: pointer;
+    font-family: 'Audiowide', cursive !important;
+    text-align: center;
+}
+#navMenu > h2:hover {
+    color: white;
+}
+.nav-menu-keyboard-focus {
+    color: white !important;
+}
+.to-up-fade-animation {
+    animation: toUpFade 1.5s ease;
+}
+.to-up-animation {
+    animation: toUpFade 1.5s ease;
+}
+.slice-next-animation {
+    animation: sliceNext 1.5s ease-in;
+}
+.slice-previus-animation {
+    animation: slicePrevius 1.5s ease-in;
+}
+.to-left-fade-animation-1 {
+    animation: toLeftFade 1.5s ease;
+}
+.to-left-fade-animation-2 {
+    animation: toLeftFadeDelay1 1.5s ease;
+}
+.to-left-fade-animation-3 {
+    animation: toLeftFadeDelay2 1.5s ease;
+}
+.waiting-for-animation {
+}
+.hidden {
+    opacity: 0 !important;
+}
+.small-logo {
+    max-width: 48px;
+}
+.medium-logo {
+    max-width: 72px;
+}
+h1 {
+    display: flex;
+    align-items: center;
+}
+h1 > .small-logo {
+    padding-left: .5rem;
+}
+@media(min-width: 769px) {
+    .card-feature > div:nth-child(2) {
+        margin-left: 10% !important;
+    }
+    .card-feature > div:nth-child(3) {
+        margin-left: 20% !important;
+    }
+    .carousel > i:hover {
+        color: rgba(70, 70, 70, 1);
+    }
+}
+@media(min-width: 426px) and (max-width: 768px) {
+    h1 {
+        font-size: 2.6rem !important;
+    }
+}
+@media(max-width: 768px) {
+    body {
+        padding: 5% 0 0 0 !important;
+    }
+    section > article {
+        max-width: 100%;
+    }
+    .card-feature > div {
+        flex-flow: column;
+        width: 100%;
+        min-height: 3rem;
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .card-generic {
+        min-width: 90%;
+    }
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+    p, span {
+        font-size: 1rem;
+        text-align: center;
+    }
+
+}
+@media(max-width: 425px) {
+    .carousel {
+        flex-wrap: wrap;;
+    }
+    .carousel > article {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .carousel > i {
+        order: 2;
+        width: 30%;
+    }
+    .carousel > i:active {
+        color: rgba(70, 70, 70, 1);
+    }
+    .carousel-info > h3 {
+        font-size: 1.6rem;
+    }
+    .carousel-info > p {
+        font-size: 1rem;
+    }
+    #toUpButton {
+        bottom: 10%;
+        right: 4%;
+    }
+    #indexButton {
+        top: 4%;
+        right: 4%;
+    }
+    #navMenu > i {
+        font-size: 3rem;
+    }
+    #navMenu > h2 {
+        font-size: 1.8rem;        
+    }
+}
