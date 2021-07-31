@@ -80,9 +80,6 @@ nav {
 }
 nav > header {
     color: var(--documentTitleColor);
-    border-bottom: 5px solid var(--documentTitleColor);
-    margin-bottom: 1rem;
-    border-radius: 25%;
 }
 nav h2,
 nav a {
@@ -103,6 +100,7 @@ nav a:visited {
     align-content: center;
     justify-items: center;
     justify-content: center;
+    text-decoration: none;
     transition: none;
 }
 nav > section > a.active,
@@ -133,9 +131,6 @@ body > section {
     scroll-snap-align: start;
     padding: 2rem 3rem;
     background-color: var(--sectionBgColor);
-    transform: skew(3deg, 3deg);
-    border-radius: 10px;
-    background-image: linear-gradient(45deg, rgba(50, 50, 50, .6), rgba(50, 50, 50, .3), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .0), rgba(50, 50, 50, .3), rgba(50, 50, 50, .6));
     overflow-y: auto;
 }
 .alt-section {
@@ -165,8 +160,7 @@ body > header p {
 .icon-container {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: repeat(8, auto);
-    grid-row-gap: 2rem;
+    grid-template-columns: repeat(9, auto);
     justify-items: center;
 }
 .icon-container-centered {
@@ -185,10 +179,12 @@ body > header p {
 .icon-item {
     transition: 1s ease transform;
     position: relative;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
     background-color: white;
-    border-radius: 5px;
     box-shadow: 1px 1px 2px 1px rgb(50, 50, 50);
+    padding: .2rem 0;
 }
 .icon-container .icon-item:hover {
     transform: scale(1.8);
@@ -204,12 +200,15 @@ body > header p {
     background-color: rgba(50, 50, 50, .7);
     color: var(--iconDescriptionColor);
     font-size: .8rem;
-    display: block;
-    text-align: center;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    padding: 0 .5rem;
+    margin: 0;
 }
 .icon-container .icon-item:hover > p {
     opacity: 1;
-    top: -13%;
+    top: 0%;
 }
 #contact {
 }
