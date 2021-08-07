@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon.png" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/main.css">
     <!-- Font Awesome -->
@@ -146,7 +147,7 @@
         <h2>Contacto</h2>
         <img src="./img/img3.png" alt="">
         <div class="icon-container-centered">
-            <a tabindex="0" href="https://github.com/Darkboy5120" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a tabindex="0" href="https://www.facebook.com/hilario.maldonadogonzalez" target="_blank"><i class="fab fa-facebook"></i></a>
             <a tabindex="0" href="https://api.whatsapp.com/send?phone=5213141637234" target="_blank"><i class="fab fa-whatsapp"></i></a>
             <a tabindex="0" href="https://github.com/Darkboy5120" target="_blank"><i class="fab fa-github"></i></a>
         </div>
@@ -154,9 +155,11 @@
     <div class="floating-actions">
         <button tabindex="6" id="fa-theme" type="button">
             <i class="fas fa-adjust"></i>
+            <p>Cambiar tema</p>
         </button>
-        <button id="show_cv" tabindex="6" id="fa-theme" type="button">
+        <button id="show_cv" tabindex="6" type="button">
             <i class="far fa-address-card"></i>
+            <p>Ver CV</p>
         </button>
     </div>
 
@@ -238,6 +241,8 @@
             let el = e.target;
             if (el.tagName == "BUTTON") {
                 el = el.querySelector("i");
+            } else if (el.tagName == "P") {
+                el = el.parentNode.querySelector("i");
             }
             if (current_theme == "dark") {
                 current_theme = "light";
@@ -300,6 +305,17 @@
             }
         }
 
+        const check_initial_section = () => {
+            const current_path = location;
+            for (let i = 0; i < sections.length; i++) {
+                if (sections[i] == current_path.hash) {
+                    current_index = i;
+                    update_section();
+                    break;
+                }
+            }
+        }
+
         document.querySelectorAll("nav > section > a").forEach((e, i) => {
             e.addEventListener("click", () => {
                 current_index = i;
@@ -336,6 +352,7 @@
         });
 
         const carousel = new Carousel();
+        check_initial_section();
     </script>
 
 </body>

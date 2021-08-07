@@ -28,6 +28,12 @@
     100% {
     }
 }
+@keyframes floatingPicture {
+    from {
+        transform: scale(1.2);
+    } to {
+    }
+}
 
 .carousel {
     display: flex;
@@ -62,6 +68,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+    animation: floatingPicture 7s linear alternate-reverse infinite;
 }
 .carousel > article > img:hover {
     cursor: pointer;
