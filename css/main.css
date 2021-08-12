@@ -286,9 +286,6 @@ footer {
     cursor: pointer;
     border-radius: 50%;
 }
-.floating-actions > button:hover > p {
-    display: block;
-}
 .floating-actions > button > p {
     display: none;
     position: absolute;
@@ -338,6 +335,9 @@ footer {
         min-width: calc(85vw - 6rem);
         scroll-margin-left: 15vw;
     }
+    .floating-actions > button:hover > p {
+        display: block;
+    }
 }
 @media(max-width: 425px) {
     nav {
@@ -386,14 +386,16 @@ footer {
     }
     body > header img,
     body > section img {
-        width: 70vw;
-    }
+        width: 70vw;    }
 
     .icon-container {
         grid-template-columns: repeat(4, 25%);
     }
     .icon-container img {
         width: 12vw;
+    }
+    .icon-container .icon-item > p {
+        font-size: .5rem;
     }
 
     #contact .icon-container-centered {
