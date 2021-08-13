@@ -175,140 +175,26 @@
                 <i class="modal-dismiss fas fa-times"></i>
             </div>
             <div class="modal-body">
-                <button data-lang="39" data-lang-set="../languages/español.json">Español</button>
+                <button class="active" data-lang="39" data-lang-set="../languages/español.json">Español</button>
                 <button data-lang="40" data-lang-set="../languages/english.json">English</button>
             </div>
         </div>
     </div>
 
     <script type="module">
-        import { Carousel } from "./js/carousel.js";
-        import { Modal } from "./js/modal.js";
+        import { Carousel } from "./js/ComponentCarousel.js";
+        import { Modal } from "./js/ComponentModal.js";
+        import { NavbarScrollBehaviur } from "./js/MainNavbarScrollBehaviur.js";
+        import { FloatingActionsBehaviur } from "./js/MainFloatingActionsBehaviur.js";
+        import { AnimationsBehaviur } from "./js/MainAnimationsBehaviur.js";
 
-        let current_theme = "dark";
+        //Llamamos las funciones para ciertos comportamientos de la pagina  
+        AnimationsBehaviur();
+        NavbarScrollBehaviur();
+        FloatingActionsBehaviur();
 
-        document.querySelector("#fa-theme").addEventListener("click", e => {
-            let el = e.target;
-            if (el.tagName == "BUTTON") {
-                el = el.querySelector("i");
-            } else if (el.tagName == "P") {
-                el = el.parentNode.querySelector("i");
-            }
-            if (current_theme == "dark") {
-                current_theme = "light";
-                el.classList.add("rotate-180");
-                document.body.classList.add("light-theme");
-                document.body.classList.remove("dark-theme");
-            } else {
-                current_theme = "dark";
-                el.classList.remove("rotate-180");
-                document.body.classList.add("dark-theme");
-                document.body.classList.remove("light-theme");
-            }
-        });
-
-        document.querySelectorAll(".icon-container-centered > a > i").forEach(e => {
-            e.addEventListener("mouseenter", (ev) => {
-                let remove_class = window.setTimeout(() => {
-                    if (e.classList.contains("contact-icon-animation")) {
-                        e.classList.remove("contact-icon-animation");
-                    }
-                }, 1400);
-                if (!e.classList.contains("contact-icon-animation")) {
-                    e.classList.add("contact-icon-animation");
-                } else {
-                    clearTimeout(remove_class);
-                }
-            });
-        });
-        let default_selected = document.querySelector("nav > section > a");
-        default_selected.classList.add("active");
-        document.querySelectorAll("nav > section > a").forEach(e => {
-            e.addEventListener("click", () => {
-                default_selected.classList.remove("active");
-                e.classList.add("active");
-                default_selected = e;
-            });
-        });
-
-        let current_index = 0;
-        const change_section_debounce = 800;
-        let able_to_change_section = true;
-        let changing_section = null;
-        const sections_tab = ["#whoami-tab", "#proyects-tab", "#skills-tab", "#contact-tab"];
-        const sections = ["#whoami", "#proyects", "#skills", "#contact"];
-        const artifitial_scroll = (key) => {
-            if (able_to_change_section) {
-                if (key == 37) {
-                    current_index--;
-                    update_section();
-                } else if (key == 39) {
-                    current_index++;
-                    update_section();
-                } else if (key == 38) {
-                    current_index--;
-                    update_section();
-                } else if (key == 40) {
-                    current_index++;
-                    update_section();
-                }
-            }
-        }
-
-        const check_initial_section = () => {
-            const current_path = location;
-            for (let i = 0; i < sections.length; i++) {
-                if (sections[i] == current_path.hash) {
-                    current_index = i;
-                    update_section();
-                    break;
-                }
-            }
-        }
-
-        document.querySelectorAll("nav > section > a").forEach((e, i) => {
-            e.addEventListener("click", () => {
-                current_index = i;
-            });
-        });
-
-        const update_section = () => {
-            if (current_index < 0) {
-                current_index = sections_tab.length - 1;
-            } else if (current_index > (sections_tab.length - 1)) {
-                current_index = 0;
-            }
-
-            document.querySelector(sections_tab[current_index]).click();
-
-            able_to_change_section = false;
-            changing_section = window.setTimeout(e => {
-                able_to_change_section = true;
-            }, change_section_debounce);
-        }
-
-        window.addEventListener("keyup", e => {
-            artifitial_scroll(e.which);
-        });
-        window.addEventListener("keydown", e => {
-            if (e.which == 37 || e.which == 39 || e.which == 38 | e.which == 40) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        });
-
-        document.querySelector("#show_cv").addEventListener("click", () => {
-            window.open("./pdf/cv.pdf");
-        });
-
+        //Instanciamos el carousel
         const carousel = new Carousel();
-
-        const m_change_language = Modal("#m-change-language");
-        document.querySelector("#change-language").addEventListener("click", () => {
-            m_change_language.show();
-        });
-
-        check_initial_section();
 
         console.log("Hola, espero que tengas un buen día :)");
     </script>
