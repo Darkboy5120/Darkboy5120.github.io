@@ -1,3 +1,5 @@
+import { Modal } from "./ComponentModal.js";
+
 export const FloatingActionsBehaviur = () => {
     let current_theme = "dark";
     //Funcionalidad para el cambio dinamico de tema
