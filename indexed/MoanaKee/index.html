@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/0d40d8f017.js" crossorigin="anonymous"></script>
+
+    <title>MoanaKee</title>
+</head>
+<body>
+    <div id="mainmenu" class="mainsection">
+        <div class="options-container">
+            <h1>MoanaKee</h1>
+            <button class="dark-button" id="mm-option-play">Jugar</button>
+            <button class="dark-button" id="mm-option-controls">Controles</button>
+            <button class="dark-button" id="mm-option-credits">Creditos</button>
+        </div>
+        <div class="message">
+            <p>Eres una tortuga en el oceano en busca de comida, come lo más
+                que puedas antes de que te atrapen.
+            </p>
+        </div>
+        <div class="version">
+            <p>V 0.1</p>
+        </div>
+    </div>
+    <div id="credits" class="mainsection hidden">
+        <div class="credits-container">
+            <p>Musica: <a target="_blank" href="https://www.bensound.com">Bensound</a></p>
+            <p>Todo lo demás: <a target="_blank" href="https://darkboy5120.github.io/">Hilarión</a></p>
+        </div>
+        <button class="dark-button" data-to-mainmenu><i class="fas fa-arrow-circle-left"></i> Menu principal</button>
+    </div>
+    <div id="game" class="mainsection hidden">
+        <div id="pausemenu">
+            <h2>Pausa</h2>
+            <button class="dark-button" id="pm-option-resume">Continuar</button>
+            <button class="dark-button" id="pm-option-reset">Reiniciar</button>
+            <button class="dark-button" id="pm-option-exit">Salir</button>
+        </div>
+        <div id="losemenu" class="hidden">
+            <h2>Has muerto</h2>
+            <button class="dark-button" id="lm-option-reset">Reiniciar</button>
+            <button class="dark-button" id="lm-option-exit">Salir</button>
+        </div>
+        <p id="game-score"></p>
+        <div class="lifes-container">
+            <span id="lifes"></span> <i class="fas fa-heart"></i>
+        </div>
+        <div class="pause-legend-container">
+            <p id="pause-text">Pausa</p>
+            <p class="keyboard-key">Esc</i></p>
+        </div>
+        <audio id="music" src="./mp3/bensound-happyrock.mp3">
+    </div>
+    <div id="controls" class="mainsection hidden">
+        <h2>Controles</h2>
+        <div class="controls-container">
+            <div class="controls-keys-container">
+                <p>Movimiento</p>
+                <p class="keyboard-key"><i class="fas fa-arrow-up"></i></p>
+                <p class="keyboard-key"><i class="fas fa-arrow-left"></i></p>
+                <p class="keyboard-key"><i class="fas fa-arrow-down"></i></p>
+                <p class="keyboard-key"><i class="fas fa-arrow-right"></i></p>
+            </div>
+            <div class="controls-keys-container">
+                <p>Pausa/Continuar</p>
+                <p class="keyboard-key">Esc</p>
+            </div>
+        </div>
+        <button class="dark-button" data-to-mainmenu><i class="fas fa-arrow-circle-left"></i> Menu principal</button>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
