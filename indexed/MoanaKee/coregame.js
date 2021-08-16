@@ -250,7 +250,8 @@ export class CoreGame {
         this.ViewManager = ViewManager;
         this.music_el = document.querySelector("#music");
         this.horizontal_trash = false;
-        this.fallen_object_movement_speed = 4;
+        this.default_falle_object_movement_speed = 4;
+        this.fallen_object_movement_speed = this.default_falle_object_movement_speed;
 
         this.ViewManager.Game.children.PauseMenu.hide();
         this.menus_button_actions();
@@ -417,6 +418,8 @@ export class CoreGame {
         this.score_el.textContent = this.score;
         this.player.reset();
         this.keys_pressed_status = [false, false, false, false];
+        this.horizontal_trash = false;
+        this.fallen_object_movement_speed = this.default_falle_object_movement_speed;
         this.disable_invencibility();
         this.pause();
         this.music_el.currentTime = 0;
