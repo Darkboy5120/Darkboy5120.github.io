@@ -1,3 +1,5 @@
+@import url('./modal.css');
+
 @keyframes blinkPlayer {
     from {
         background-color: gold;
@@ -124,6 +126,9 @@ h2 {
     right: 2rem;
     bottom: 2rem;
     padding: 1rem;
+}
+.version:hover {
+    cursor: pointer;
 }
 .version > p {
     margin: 0;
@@ -289,3 +294,11 @@ button[data-to-mainmenu] {
     justify-content: center;
     margin: 0;
 }
+
+.modal-container {
+    background-color: rgb(220, 220, 220);
+}
+.modal-body {
+    background-color: rgb(240, 240, 240);
+}
+

@@ -3,6 +3,25 @@ import { CoreGame } from "./coregame.js";
 (function () {
 
     const ViewManager = {
+        PatchNotes : {
+            element : document.querySelector("#pathnotes"),
+            active: false,
+            show : () => {
+                ViewManager.PatchNotes.element.classList.remove("hidden");
+            },
+            hide : () => {
+                ViewManager.PatchNotes.element.classList.add("hidden");
+            },
+            trigger : () => {
+                if (ViewManager.PatchNotes.active == true) {
+                    ViewManager.PatchNotes.active = false;
+                    ViewManager.PatchNotes.hide();
+                } else {
+                    ViewManager.PatchNotes.active = true;
+                    ViewManager.PatchNotes.show();
+                }
+            }
+        },
         MainMenu : {
             element : document.querySelector("#mainmenu"),
             show : () => {
@@ -77,6 +96,14 @@ import { CoreGame } from "./coregame.js";
     document.querySelector("#mm-option-credits").addEventListener("click", () => {
         ViewManager.MainMenu.hide();
         ViewManager.Credits.show();
+    });
+    
+    //modal clicks events
+    document.querySelector("#pathnotes-trigger").addEventListener("click", () => {
+        ViewManager.PatchNotes.trigger();
+    });
+    ViewManager.PatchNotes.element.querySelector(".modal-container > .modal-title > i").addEventListener("click", () => {
+        ViewManager.PatchNotes.trigger();
     });
 
     //all to mainmenu buttons

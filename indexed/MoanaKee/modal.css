@@ -1,0 +1,94 @@
+@keyframes show_modal {
+    from {
+        opacity: 0;
+        transform: scale(.3);
+    } to {
+    }
+}
+@keyframes hide_modal {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    } to {
+        opacity: 0;
+        transform: scale(.3);
+    }
+}
+
+.modal-animation-show {
+    animation: show_modal .4s ease;
+}
+.modal-animation-hide {
+    animation: hide_modal .4s ease;
+}
+
+.modal {
+    background-color: rgba(50, 50, 50, .8);
+    z-index: 20;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+.modal-container {
+    display: block;
+    margin: auto;
+    width: 50vw;
+    height: min-content;
+    padding: 1rem 2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--navbarBgColor);
+    border-radius: 5px;
+}
+.modal-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--normalTextColor);
+}
+.modal-title > h2 {
+    flex-grow: 1;
+}
+.modal-title > i {
+    font-size: 2rem;
+    padding: .5rem;
+}
+.modal-title > i:hover {
+    cursor: pointer;
+    color: red;
+}
+.modal-body {
+    background-color: var(--sectionBgColor);
+    padding: 1rem;
+    border-radius: 5px;
+    height: 50vh;
+    overflow-y: auto;
+}
+.modal-body > button {
+    font-size: 1.2rem;
+}
+.modal-body > button {
+    cursor: pointer;
+}
+.modal-body > button.active {
+    background-color: gold;
+    color: black;
+}
+
+.modal-body > section {
+    padding: .5rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px 1px rgb(200, 200, 200);
+    margin-bottom: 1rem;
+}
+
+@media(max-width: 425px) {
+    .modal-container {
+        width: 70vw;
+        height: min-content;
+        padding: 1rem 2rem;
+    }
+}

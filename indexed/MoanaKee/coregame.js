@@ -42,14 +42,36 @@ class Player extends Object {
         this.initial_lifes = 3;
         this.lifes = this.initial_lifes;
         this.element.classList.add("player");
-        this.element.innerHTML = "<img src='./img/player_0.png'></img";
+        this.frames = ["./img/player_0.png", "./img/player_1.png"];
+        this.current_frame = 0;
+        this.frame_count = 0;
+        this.frame_step = 5;
+        this.element.innerHTML = `<img src="${this.frames[this.current_frame]}"></img>`;
+        this.frame_el = this.element.querySelector("img");
+        this.update_frame();
         this.update_lifes();
+        this.update = () => {
+            if (this.frame_count == this.frame_step) {
+                this.current_frame = (this.current_frame == 0) ? 1: 0;
+                this.frame_count = 0;
+                this.update_frame();
+            } else  {
+                this.frame_count++;
+            }
+            this.element.style.transform = `translate(${this.current_x_pos}${this.movement_unit},${this.current_y_pos}${this.movement_unit})`;
+        }
+    }
+
+    update_frame () {
+        this.frame_el.setAttribute("src", this.frames[this.current_frame]);
     }
 
     reset () {
         this.lifes = this.initial_lifes;
         this.current_x_pos = this.respaw_x_pos;
         this.current_y_pos = this.respaw_y_pos;
+        this.current_frame = 0;
+        this.frame_count = 0;
         this.update_lifes();
         this.update();
     }
@@ -86,26 +108,25 @@ class Player extends Object {
 }
 
 class FallenObjects extends Object {
-    constructor (container, type) {
-        super(container, 4, 0, 0);
+    constructor (container, type, movement_speed) {
+        super(container, movement_speed, 0, 0);
         this.type = type;
-        this.respaw_x_pos = this.gen_random_x_pos();
-        this.current_x_pos = this.respaw_x_pos;
         this.element.classList.add("fallen-object");
         this.update();
     }
 
     fall () {
-        this.move(2);
-        this.update();
     }
 
     gen_random_x_pos () {
         return Math.floor(Math.random()*window.innerWidth);
     }
 
+    gen_random_y_pos () {
+        return Math.floor(Math.random()*window.innerHeight);
+    }
+
     reach_bottom () {
-        return (this.current_y_pos >= window.innerHeight);
     }
 
     remove () {
@@ -113,37 +134,98 @@ class FallenObjects extends Object {
     }
 }
 
-class Trash extends FallenObjects {
-    constructor (container) {
-        super(container, 0);
+class VerticalTrash extends FallenObjects {
+    constructor (container, movement_speed) {
+        super(container, 0, movement_speed);
         this.image = null;
         this.element.classList.add("trash");
         this.element.innerHTML = "<img src='./img/fallen_object_1.png'></img";
+
+        this.respaw_x_pos = this.gen_random_x_pos();
+        this.current_x_pos = this.respaw_x_pos;
+
+        this.fall = () => {
+            this.move(2);
+            this.update();
+        }
+
+        this.reach_bottom = () => {
+            return (this.current_y_pos >= window.innerHeight);
+        }
+    }
+}
+
+class HorizontalTrash extends VerticalTrash {
+    constructor (container, movement_speed) {
+        super(container, movement_speed);
+
+        this.respaw_y_pos = this.gen_random_y_pos();
+        this.current_y_pos = this.respaw_y_pos;
+
+        if (Math.floor(Math.random()*2) == 0) {
+            this.respaw_x_pos = 0;
+            this.move_value = 3;
+            this.reach_bottom = () => {
+                return (this.current_x_pos >= window.innerWidth);
+            }
+        } else {
+            this.respaw_x_pos = (window.innerWidth-parseInt(window.getComputedStyle(this.element).width));
+            this.move_value = 0;
+            this.reach_bottom = () => {
+                return (this.current_x_pos <= 0);
+            }
+        }
+
+        this.current_x_pos = this.respaw_x_pos;
+
+        this.fall = () => {
+            this.move(this.move_value);
+            this.update();
+        }
     }
 }
 
 class Food extends FallenObjects {
-    constructor (container) {
-        super(container, 1);
+    constructor (container, movement_speed) {
+        super(container, 1, movement_speed);
         this.image = null;
         this.element.classList.add("food");
+
+        this.respaw_x_pos = this.gen_random_x_pos();
+        this.current_x_pos = this.respaw_x_pos;
+
+        this.fall = () => {
+            this.move(2);
+            this.update();
+        }
+
+        this.reach_bottom = () => {
+            return (this.current_y_pos >= window.innerHeight);
+        }
     }
 }
 
-const GetRandomFallenObject = (container) => {
+const GetRandomFallenObject = (container, movement_speed, horizontal_trash) => {
     const gen_object_type = () => {
-        let rand_number = Math.floor(Math.random()*10);
+        let rand_number = Math.floor(Math.random()*100);
         //20% de generar objetos que aumentan puntuacion
         //80% de generar objetos que quiten vidas
-        let type =  (rand_number > 7) ? 1 : 0;
+        let type = null;
+        if (rand_number >= 79) {
+            type = 1
+        } else if (rand_number < 79) {
+            type = (horizontal_trash && rand_number >= 65) ? 2 : 0;
+        }
         return type;
     }
 
     const type = gen_object_type();
     if (type == 0) {
-        return new Trash(container);
+        return new VerticalTrash(container, movement_speed);
     } else if (type == 1) {
-        return new Food(container);
+        return new Food(container, movement_speed);
+    } else if (type == 2) {
+        return new HorizontalTrash(container, movement_speed);
     }
 }
 
@@ -167,6 +249,8 @@ export class CoreGame {
         this.score_el = document.querySelector("#game-score");
         this.ViewManager = ViewManager;
         this.music_el = document.querySelector("#music");
+        this.horizontal_trash = false;
+        this.fallen_object_movement_speed = 4;
 
         this.ViewManager.Game.children.PauseMenu.hide();
         this.menus_button_actions();
@@ -174,12 +258,19 @@ export class CoreGame {
 
     resume () {
         this.ViewManager.Game.children.PauseMenu.hide();
+        this.ViewManager.Game.children.LoseMenu.hide();
         this.halt = false;
         this.music_el.play();
     }
 
     pause () {
         this.ViewManager.Game.children.PauseMenu.show();
+        this.halt = true;
+        this.music_el.pause();
+    }
+
+    lose () {
+        this.ViewManager.Game.children.LoseMenu.show();
         this.halt = true;
         this.music_el.pause();
     }
@@ -272,23 +363,36 @@ export class CoreGame {
                     this.trigger_invencibility();
                     this.player.lose_life();
                     if (this.player.lifes == 0) {
-                        this.pause();
+                        this.lose();
                     }
                 } else if (this.fallen_objects[i].type == 1) {
-                    this.score++;
-                    this.fallen_objects[i].remove();
-                    this.fallen_objects[i] = null;
-                    this.fallen_objects[i] = GetRandomFallenObject(this.container);
+                    this.eat(i);
+                    this.check_difficulty();
                 }
             }
         }
+    }
+
+    check_difficulty () {
+        if (this.score > 10 && !this.horizontal_trash) {
+            this.horizontal_trash = true;
+        } else if (this.score > 10 && this.score % 10) {
+            this.fallen_object_movement_speed++;
+        }
+    }
+
+    eat (index) {
+        this.score++;
+        this.fallen_objects[index].remove();
+        this.fallen_objects[index] = null;
+        this.fallen_objects[index] = GetRandomFallenObject(this.container, this.fallen_object_movement_speed, this.horizontal_trash);
     }
 
     fallen_objects_gravity () {
         for (let i = 0; i < this.fallen_objects.length; i++) {
             if (this.fallen_objects[i].reach_bottom()) {
                 this.fallen_objects[i].remove();
-                this.fallen_objects[i] = GetRandomFallenObject(this.container);
+                this.fallen_objects[i] = GetRandomFallenObject(this.container, this.fallen_object_movement_speed, this.horizontal_trash);
                 continue;
             } else {
                 this.fallen_objects[i].fall();
@@ -300,7 +404,7 @@ export class CoreGame {
         //33% de generar un objeto cada frame
         if (this.fallen_objects.length < this.max_fallen_objects
             && (Math.floor(Math.random()*3) == 0)) {
-                this.fallen_objects.push(GetRandomFallenObject(this.container));
+                this.fallen_objects.push(GetRandomFallenObject(this.container, this.fallen_object_movement_speed, this.horizontal_trash));
         }
     }
 
