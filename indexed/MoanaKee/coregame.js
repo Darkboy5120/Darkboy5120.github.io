@@ -8,7 +8,13 @@ class Object {
         this.current_y_pos = null;
         this.movement_unit = "px";
         this.element = this.create_element();
+        this.update_size();
         this.update();
+    }
+
+    update_size () {
+        this.width = parseInt(window.getComputedStyle(this.element).width);
+        this.height = parseInt(window.getComputedStyle(this.element).height);
     }
 
     move (direction) {
@@ -48,6 +54,7 @@ class Player extends Object {
         this.frame_step = 5;
         this.element.innerHTML = `<img src="${this.frames[this.current_frame]}"></img>`;
         this.frame_el = this.element.querySelector("img");
+        this.update_size();
         this.update_frame();
         this.update_lifes();
         this.update = () => {
@@ -98,18 +105,18 @@ class Player extends Object {
             && (this.current_y_pos-this.movement_speed) > 0) {
             this.current_y_pos = this.current_y_pos-this.movement_speed
         } else if (direction == 2
-            && (this.current_y_pos+this.movement_speed) < (window.innerHeight-parseInt(window.getComputedStyle(this.element).height))) {
+            && (this.current_y_pos+this.movement_speed) < (window.innerHeight-this.height)) {
             this.current_y_pos = this.current_y_pos+this.movement_speed
         } else if (direction == 3
-            && (this.current_x_pos+this.movement_speed) < (window.innerWidth-parseInt(window.getComputedStyle(this.element).width))) {
+            && (this.current_x_pos+this.movement_speed) < (window.innerWidth-this.width)) {
             this.current_x_pos = this.current_x_pos+this.movement_speed
         }
     }
 }
 
 class FallenObjects extends Object {
-    constructor (container, type, movement_speed) {
-        super(container, movement_speed, 0, 0);
+    constructor (container, type, movement_speed, respaw_x_pos, respaw_y_pos) {
+        super(container, movement_speed, respaw_x_pos, respaw_y_pos);
         this.type = type;
         this.element.classList.add("fallen-object");
         this.update();
@@ -136,7 +143,7 @@ class FallenObjects extends Object {
 
 class VerticalTrash extends FallenObjects {
     constructor (container, movement_speed) {
-        super(container, 0, movement_speed);
+        super(container, 0, movement_speed, 0, 0);
         this.image = null;
         this.element.classList.add("trash");
         this.element.innerHTML = "<img src='./img/fallen_object_1.png'></img";
@@ -157,7 +164,7 @@ class VerticalTrash extends FallenObjects {
 
 class HorizontalTrash extends VerticalTrash {
     constructor (container, movement_speed) {
-        super(container, movement_speed);
+        super(container, movement_speed, 0, 0);
 
         this.respaw_y_pos = this.gen_random_y_pos();
         this.current_y_pos = this.respaw_y_pos;
@@ -169,7 +176,7 @@ class HorizontalTrash extends VerticalTrash {
                 return (this.current_x_pos >= window.innerWidth);
             }
         } else {
-            this.respaw_x_pos = (window.innerWidth-parseInt(window.getComputedStyle(this.element).width));
+            this.respaw_x_pos = (window.innerWidth-this.width);
             this.move_value = 0;
             this.reach_bottom = () => {
                 return (this.current_x_pos <= 0);
@@ -187,7 +194,7 @@ class HorizontalTrash extends VerticalTrash {
 
 class Food extends FallenObjects {
     constructor (container, movement_speed) {
-        super(container, 1, movement_speed);
+        super(container, 1, movement_speed, 0, 0);
         this.image = null;
         this.element.classList.add("food");
 
@@ -250,8 +257,10 @@ export class CoreGame {
         this.ViewManager = ViewManager;
         this.music_el = document.querySelector("#music");
         this.horizontal_trash = false;
-        this.default_falle_object_movement_speed = 4;
-        this.fallen_object_movement_speed = this.default_falle_object_movement_speed;
+        this.default_gen_object_chance = 6;
+        this.gen_object_chance = this.default_gen_object_chance;
+        this.default_fallen_object_movement_speed = 4;
+        this.fallen_object_movement_speed = this.default_fallen_object_movement_speed;
 
         this.ViewManager.Game.children.PauseMenu.hide();
         this.menus_button_actions();
@@ -377,8 +386,11 @@ export class CoreGame {
     check_difficulty () {
         if (this.score > 10 && !this.horizontal_trash) {
             this.horizontal_trash = true;
-        } else if (this.score > 10 && this.score % 10) {
+        } else if (this.score > 10 && this.score % 10 == 0) {
             this.fallen_object_movement_speed++;
+        }
+        if (this.score > 10 && this.score % 15 == 0) {
+            this.gen_object_chance--;
         }
     }
 
@@ -404,7 +416,7 @@ export class CoreGame {
     gen_fallen_objects () {
         //33% de generar un objeto cada frame
         if (this.fallen_objects.length < this.max_fallen_objects
-            && (Math.floor(Math.random()*3) == 0)) {
+            && (Math.floor(Math.random()*this.gen_object_chance) == 0)) {
                 this.fallen_objects.push(GetRandomFallenObject(this.container, this.fallen_object_movement_speed, this.horizontal_trash));
         }
     }
@@ -419,7 +431,8 @@ export class CoreGame {
         this.player.reset();
         this.keys_pressed_status = [false, false, false, false];
         this.horizontal_trash = false;
-        this.fallen_object_movement_speed = this.default_falle_object_movement_speed;
+        this.fallen_object_movement_speed = this.default_fallen_object_movement_speed;
+        this.gen_object_chance = this.default_gen_object_chance;
         this.disable_invencibility();
         this.pause();
         this.music_el.currentTime = 0;
