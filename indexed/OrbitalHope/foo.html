@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const deviceID = "430024000a47373336323230";
+        const var2get = "analogvalue";
+        const accessToken = "5a8b470cef0c46122f1222b7fddc8d8a3ae1861c";
+
+        var requestURL = "https://api.particle.io/v1/devices/" +deviceID + "/" + var2get + "/?access_token=" + accessToken;
+        fetch(requestURL)
+        .then(r => r.json())
+        .catch(e => console.error(e))
+        .then(r => {
+            console.log(r)
+        })
+    </script>
+</body>
+</html>
