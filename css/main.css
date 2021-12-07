@@ -149,6 +149,12 @@ body > section {
     scroll-snap-align: start;
     background-color: var(--sectionBgColor);
     overflow-y: auto;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+}
+body > header::-webkit-scrollbar,
+body > section::-webkit-scrollbar {
+    background: none;
 }
 .alt-section {
     background-color: var(--sectionBgAltColor);
