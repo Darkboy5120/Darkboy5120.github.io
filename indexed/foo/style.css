@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(100, 100, 100);
+  overflow: hidden;
+}
+h1 {
+  margin: 10%;
+  text-align: center;
+  font-size: 1.6rem;
+  color: rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(0, 0, 0);
+}
+video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: center;
+  border-radius: 15px;
+  border: 1px solid black;
+  padding: 0;
+  background-color: rgb(50, 50, 50);
+  z-index: 5;
+}
+img {
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  z-index: 1;
+} 
