@@ -25,7 +25,7 @@ export const FloatingActionsBehaviur = () => {
     
     //Mostramos el CV
     document.querySelector("#show_cv").addEventListener("click", () => {
-        window.open("./pdf/cv.pdf");
+        window.open("./pdf/cv.docx.pdf");
     });
 
     //Instanciamos el modal para cambiar idioma
