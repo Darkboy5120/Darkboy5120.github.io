@@ -16,7 +16,7 @@
     --navbarBgColor: rgb(130, 70, 160);
     --footerBgColor: rgb(50, 50, 50);
     --footerTextColor: rgba(215, 215, 215);
-    --facebookIconColor: rgb(70, 150, 255);
+    --linkedinIconColor: rgb(70, 150, 255);
     --whatsappIconColor: rgb(75, 175, 100);
     --githubIconColor: rgb(245, 245, 245);
     --floatingActionsButtonBgColor: rgb(50, 50, 50);
@@ -38,7 +38,7 @@
     --navbarBgColor: rgb(240, 240, 240);
     --footerBgColor: rgb(50, 50, 50);
     --footerTextColor: rgba(200, 200, 200);
-    --facebookIconColor: rgb(70, 150, 255);
+    --linkedinIconColor: rgb(70, 150, 255);
     --whatsappIconColor: rgb(75, 175, 100);
     --githubIconColor: rgb(245, 245, 245);
     --floatingActionsButtonBgColor: rgb(50, 50, 50);
@@ -255,8 +255,8 @@ body > header p {
 .contact-icon-animation {
     animation: iconDance 1.4s ease;
 }
-#contact .icon-container-centered > a > i.fa-facebook {
-    color: var(--facebookIconColor);
+#contact .icon-container-centered > a > i.fa-linkedin-in {
+    color: var(--linkedinIconColor);
 }
 #contact .icon-container-centered > a > i.fa-whatsapp {
     color: var(--whatsappIconColor);
