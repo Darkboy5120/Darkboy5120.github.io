@@ -264,6 +264,7 @@ export class CoreGame {
 
         this.ViewManager.Game.children.PauseMenu.hide();
         this.menus_button_actions();
+        this.ViewManager.Game.children.VolumeControls.turnOn();
     }
 
     resume () {
@@ -296,7 +297,6 @@ export class CoreGame {
         document.querySelector("#pm-option-exit").addEventListener("click", () => {
             this.ViewManager.Game.children.PauseMenu.hide();
             this.reset();
-            this.ViewManager.Game.hide();
             this.ViewManager.MainMenu.show();
         });
 
@@ -307,11 +307,14 @@ export class CoreGame {
         document.querySelector("#lm-option-exit").addEventListener("click", () => {
             this.ViewManager.Game.children.LoseMenu.hide();
             this.reset();
-            this.ViewManager.Game.hide();
             this.ViewManager.MainMenu.show();
         });
         document.querySelector(".pause-legend-container").addEventListener("click", () => {
-            this.pause();
+            if (this.halt && this.player.lifes > 0) {
+                this.resume();
+            } else if (this.player.lifes > 0) {
+                this.pause();
+            }
         });
     }
 
@@ -330,7 +333,17 @@ export class CoreGame {
         }
     }
 
+    check_audio_settings () {
+        const audioIsOn = this.ViewManager.Game.children.VolumeControls.isOn;
+        if (audioIsOn && this.music_el.muted) {
+            this.music_el.muted = false;
+        } else if (!audioIsOn && !this.music_el.muted) {
+            this.music_el.muted = true;
+        }
+    }
+
     get_frame () {
+        this.check_audio_settings();
         this.keys_status_effect();
         this.player.update();
         this.gen_fallen_objects();
@@ -450,7 +463,7 @@ export class CoreGame {
             }
             this.current_frame++;
         }, 1000/this.fps);
-        this.listen_keywork_events();
+        this.listen_ingame_keywork_events();
         this.player = new Player(this.container);
         this.gen_fallen_objects();
     }
@@ -459,8 +472,11 @@ export class CoreGame {
         this.keyup_listener = null;
     }
 
-    listen_keywork_events () {
+    listen_ingame_keywork_events () {
         this.keyup_listener = window.addEventListener("keyup", e => {
+            if (this.ViewManager.currentScreen !== 'Game') {
+                return;
+            }
             if (e.which == 27 && this.player.lifes > 0) {
                 if (!this.halt) {
                     this.pause();

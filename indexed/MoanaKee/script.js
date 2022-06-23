@@ -3,59 +3,59 @@ import { CoreGame } from "./coregame.js";
 (function () {
 
     const ViewManager = {
-        PatchNotes : {
-            element : document.querySelector("#pathnotes"),
-            active: false,
-            show : () => {
-                ViewManager.PatchNotes.element.classList.remove("hidden");
-            },
-            hide : () => {
-                ViewManager.PatchNotes.element.classList.add("hidden");
-            },
-            trigger : () => {
-                if (ViewManager.PatchNotes.active == true) {
-                    ViewManager.PatchNotes.active = false;
-                    ViewManager.PatchNotes.hide();
-                } else {
-                    ViewManager.PatchNotes.active = true;
-                    ViewManager.PatchNotes.show();
-                }
-            }
+        currentScreen: 'MainMenu',
+        updateScreen: (newScreenName) => {
+            ViewManager[ViewManager.currentScreen].element.classList.add("hidden");
+            ViewManager[newScreenName].element.classList.remove("hidden");
+            ViewManager.currentScreen = newScreenName;
         },
         MainMenu : {
+            name: 'MainMenu',
             element : document.querySelector("#mainmenu"),
             show : () => {
-                ViewManager.MainMenu.element.classList.remove("hidden");
+                ViewManager.updateScreen(ViewManager.MainMenu.name);
             },
-            hide : () => {
-                ViewManager.MainMenu.element.classList.add("hidden");
-            }
+            children: {
+                PatchNotes : {
+                    element : document.querySelector("#pathnotes"),
+                    active: false,
+                    show : () => {
+                        ViewManager.MainMenu.children.PatchNotes.element.classList.remove("hidden");
+                    },
+                    hide : () => {
+                        ViewManager.MainMenu.children.PatchNotes.element.classList.add("hidden");
+                    },
+                    trigger : () => {
+                        if (ViewManager.MainMenu.children.PatchNotes.active == true) {
+                            ViewManager.MainMenu.children.PatchNotes.active = false;
+                            ViewManager.MainMenu.children.PatchNotes.hide();
+                        } else {
+                            ViewManager.MainMenu.children.PatchNotes.active = true;
+                            ViewManager.MainMenu.children.PatchNotes.show();
+                        }
+                    }
+                },
+            },
         },
         Controls : {
+            name: 'Controls',
             element : document.querySelector("#controls"),
             show : () => {
-                ViewManager.Controls.element.classList.remove("hidden");
+                ViewManager.updateScreen(ViewManager.Controls.name);
             },
-            hide : () => {
-                ViewManager.Controls.element.classList.add("hidden");
-            }
         },
         Credits : {
+            name: 'Credits',
             element : document.querySelector("#credits"),
             show : () => {
-                ViewManager.Credits.element.classList.remove("hidden");
+                ViewManager.updateScreen(ViewManager.Credits.name);
             },
-            hide : () => {
-                ViewManager.Credits.element.classList.add("hidden");
-            }
         },
         Game : {
+            name: 'Game',
             element : document.querySelector("#game"),
             show : () => {
-                ViewManager.Game.element.classList.remove("hidden");
-            },
-            hide : () => {
-                ViewManager.Game.element.classList.add("hidden");
+                ViewManager.updateScreen(ViewManager.Game.name);
             },
             children : {
                 PauseMenu : {
@@ -75,7 +75,20 @@ import { CoreGame } from "./coregame.js";
                     hide : () => {
                         ViewManager.Game.children.LoseMenu.element.classList.add("hidden");
                     },
-                }
+                },
+                VolumeControls : {
+                    isOn: true,
+                    turnOff: () => {
+                        ViewManager.Game.children.VolumeControls.isOn = false;
+                        document.querySelector("#game-music-on").classList.add("hidden");
+                        document.querySelector("#game-music-off").classList.remove("hidden");
+                    },
+                    turnOn: () => {
+                        ViewManager.Game.children.VolumeControls.isOn = true;
+                        document.querySelector("#game-music-on").classList.remove("hidden");
+                        document.querySelector("#game-music-off").classList.add("hidden");
+                    },
+                },
             }
         }
     }
@@ -85,32 +98,33 @@ import { CoreGame } from "./coregame.js";
 
     //mainmenu click functions
     document.querySelector("#mm-option-play").addEventListener("click", () => {
-        ViewManager.MainMenu.hide();
         ViewManager.Game.show();
         coregame.resume();
     });
     document.querySelector("#mm-option-controls").addEventListener("click", () => {
-        ViewManager.MainMenu.hide();
         ViewManager.Controls.show();
     });
     document.querySelector("#mm-option-credits").addEventListener("click", () => {
-        ViewManager.MainMenu.hide();
         ViewManager.Credits.show();
     });
     
     //modal clicks events
     document.querySelector("#pathnotes-trigger").addEventListener("click", () => {
-        ViewManager.PatchNotes.trigger();
+        ViewManager.MainMenu.children.PatchNotes.trigger();
     });
-    ViewManager.PatchNotes.element.querySelector(".modal-container > .modal-title > i").addEventListener("click", () => {
-        ViewManager.PatchNotes.trigger();
+    ViewManager.MainMenu.children.PatchNotes.element.querySelector(".modal-container > .modal-title > i").addEventListener("click", () => {
+        ViewManager.MainMenu.children.PatchNotes.trigger();
+    });
+    document.querySelector("#game-music-on").addEventListener("click", () => {
+        ViewManager.Game.children.VolumeControls.turnOff();
+    });
+    document.querySelector("#game-music-off").addEventListener("click", () => {
+        ViewManager.Game.children.VolumeControls.turnOn();
     });
 
     //all to mainmenu buttons
     document.querySelectorAll("[data-to-mainmenu]").forEach(e => {
         e.addEventListener("click", event => {
-            ViewManager.Controls.hide();
-            ViewManager.Credits.hide();
             ViewManager.MainMenu.show();
         });
     });
